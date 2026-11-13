@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="lista"></ul>
+
+    <script>
+        let arrayNumeros = [4,0,3,4,7,3,5,8,1,8,8,0,2,3,1,2,5,7,3,2,5,1];
+        
+        let arrayNumerosSinRepe = [...new Set(arrayNumeros)];
+
+        const ulElemento = document.getElementById("lista");
+        ulElemento.innerHTML = arrayNumerosSinRepe.map((numero) => `<li>${numero}</li>`).join("");
+    </script>
+</body>
+</html>
