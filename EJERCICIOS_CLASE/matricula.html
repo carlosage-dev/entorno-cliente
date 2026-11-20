@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .contenedor-principal {
+            display: flex;
+            gap: 1px;
+        }
+
+        .cursos{
+            flex:1;
+        }
+    </style>
+</head>
+<body>
+    <h1>MATRICULA DE DAW</h1>
+    <div class="contenedor-principal">
+        <div class="cursos">
+            <h3>PRIMERO CURSO</h3>
+            <input type="checkbox" name="asignaturas" value="Sistemas-Infomaticos"><label>Sistemas Informaticos</label><br>
+            <input type="checkbox" name="asignaturas" value="Programacion"><label>Programacion</label><br>
+            <input type="checkbox" name="asignaturas" value="BBDD"><label>BBDD</label><br>
+            <input type="checkbox" name="asignaturas" value="Lenguaje-de-Marcas"><label>Lenguaje de Marcas</label><br>
+            <input type="checkbox" name="asignaturas" value="Entornos"><label>Entornos</label><br>
+            <input type="checkbox" name="asignaturas" value="Computacion-en-la-Nube"><label>Computacion en la Nube</label><br>
+        </div>
+
+        <div class="cursos">
+            <h3>SEGUNDO CURSO</h3>
+            <input type="checkbox" name="asignaturas" value="Cliente"><label>Cliente</label><br>
+            <input type="checkbox" name="asignaturas" value="Servidor"><label>Servidor</label><br>
+            <input type="checkbox" name="asignaturas" value="Despliegue"><label>Despliegue</label><br>
+            <input type="checkbox" name="asignaturas" value="Interfaces"><label>Interfaces</label><br>
+            <input type="checkbox" name="asignaturas" value="Ampliacion"><label>Ampliacion</label><br>
+            <input type="checkbox" name="asignaturas" value="Digitalización"><label>Digitalización</label><br>
+        </div>
+
+    </div>
+    <input type="button" value="VALIDAR" onclick="validar()"><br>
+    <textarea id="resultado" rows="20" cols="20" ></textarea>
+    <script>
+        function validar(){
+            var asignaturas = document.getElementsByName('asignaturas');
+            var texto="";
+            for(let i =0; i<asignaturas.length;i++){
+                if (asignaturas[i].checked){
+                    texto+=asignaturas[i].value + "\n";
+                }
+            }
+            document.getElementById("resultado").value="La relacion de asignaturas es: "+"\n"+ texto;
+        }
+    </script>
+    
+</body>
+</html>
