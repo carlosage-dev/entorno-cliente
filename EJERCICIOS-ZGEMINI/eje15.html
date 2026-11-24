@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 15 - Buscar y cortar arrays</title>
+</head>
+<body>
+  <label for="buscarInput">Elemento a buscar o borrar:</label>
+  <!-- AQUÍ PUEDES PONER onchange O USAR LOS BOTONES CON onclick -->
+  <input type="text" id="buscarInput">
+
+  <!-- AQUÍ VAN LOS EVENTOS onclick -->
+  <button type="button" id="btnUnir" onclick="unirArrays()">Unir arrays (concat)</button>
+  <button type="button" id="btnBuscar" onclick="buscar()">Buscar (includes / indexOf)</button>
+  <button type="button" id="btnTrozo">Sacar trozo (slice 0, 2)</button>
+  <button type="button" id="btnBorrar">Borrar encontrado (splice)</button>
+
+  <p id="salidaArray15"></p>
+
+  <script>
+    let arrayA = ["html", "css", "js"];
+    let arrayB = ["php", "sql"];
+    // TU CÓDIGO JS AQUÍ
+    function unirArrays(){
+        let arrays = arrayA.concat(arrayB);
+        document.getElementById("salidaArray15").textContent = arrays;
+    }
+
+    function buscar(){
+        let buscado = document.getElementById("buscarInput").value.trim().toLowerCase();
+        if (buscado === "") {
+            document.getElementById("salidaArray15").textContent = "Escribe algo para buscar.";
+            return;
+        }
+        
+        if (arrayA.includes(buscado)){
+            let posicion = -1;
+            for (let clave in arrayA){
+                if (arrayA[clave]=== buscado){
+                    posicion =clave;
+                    break;
+                }
+            }
+            document.getElementById("salidaArray15").textContent = "Hemos encontrado " + buscado + " en el arrayA en la posicion: " + posicion; 
+        }else{
+            document.getElementById("salidaArray15").textContent = "No hemos encontrado "+buscado;
+        }
+    }
+
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>F3 - Checkboxes con name y .checked</title>
+</head>
+<body>
+  <p>Elige tus módulos favoritos:</p>
+  <label><input type="checkbox" name="modFav" value="DWEC"> DWEC</label><br>
+  <label><input type="checkbox" name="modFav" value="DWES"> DWES</label><br>
+  <label><input type="checkbox" name="modFav" value="DIW"> DIW</label><br>
+  <label><input type="checkbox" name="modFav" value="DAW"> DAW</label><br><br>
+
+  <!-- PON AQUÍ EL EVENTO onclick -->
+  <button type="button" id="btnChecks" onclick="ver()">Ver seleccionados</button>
+  <p id="salidaChecks"></p>
+
+  <script>
+    // Pista: let cajas = document.getElementsByName("modFav");
+    // Recorre 'cajas' con un for y mira si cajas[i].checked es true
+    // TU CÓDIGO JS AQUÍ
+    function ver(){
+        document.getElementById("salidaChecks").textContent="";
+        let modulos = document.getElementsByName("modFav");
+        let salida = document.getElementById("salidaChecks");
+        let contador=0;
+        for(let i = 0; i<modulos.length;i++){
+            if(modulos[i].checked){
+                contador++;
+                salida.innerHTML+= modulos[i].value +" "+ "<br>";
+            }
+        }
+        document.getElementById("salidaChecks").textContent+= "Total Check: "+ contador;
+    }
+  </script>
+</body>
+</html>

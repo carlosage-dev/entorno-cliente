@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>08 · Calculadora básica (ejercicio 4 del profesor)</title>
+  <style>
+    body { font-family: "Segoe UI", Arial, sans-serif; background: #f3f5f9; color: #222; margin: 0; padding: 20px; }
+    h1 { font-size: 22px; margin: 0 0 12px; color: #1f3a5f; }
+    .enunciado { background: #fff8e1; border-left: 6px solid #f0a500; padding: 8px 18px; margin-bottom: 18px;
+                 font-size: 14px; line-height: 1.45; max-width: 900px; }
+    .enunciado code { background: #f1e6c3; padding: 0 4px; border-radius: 3px; }
+    .caja { background: #fff; border: 1px solid #cfd6e0; border-radius: 8px; padding: 16px; max-width: 720px;
+            margin-bottom: 14px; }
+    .fila { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+    .fila .caja { flex: 1; min-width: 300px; }
+    .centro { text-align: center; }
+    label { display: inline-block; min-width: 130px; font-weight: bold; }
+    input[type=text], select { padding: 4px; }
+    input[type=button], input[type=reset] { padding: 6px 14px; margin: 4px 2px; cursor: pointer; }
+    textarea { width: 100%; box-sizing: border-box; font-family: Consolas, monospace; font-size: 13px; tab-size: 8; }
+    .marco { width: 100px; height: 100px; border: 2px solid #333; margin-bottom: 8px; }
+    .lista { width: 100%; }
+    .reloj { font-family: Consolas, monospace; font-size: 22px; text-align: center; }
+    /* calculadora */
+    .calc { background: #2d3436; padding: 16px; border-radius: 12px; width: 280px; }
+    .calc p { color: #fff; margin: 10px 0 4px; }
+    #pantalla { width: 100%; box-sizing: border-box; font-size: 28px; text-align: right; padding: 8px; margin-bottom: 10px; }
+    .teclas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+    .teclas input { font-size: 20px; padding: 12px 0; margin: 0; border: none; border-radius: 6px; }
+    .teclas .op { background: #f39c12; color: #fff; }
+    .teclas .igual { background: #27ae60; color: #fff; }
+    .teclas .borrar { background: #c0392b; color: #fff; grid-column: span 2; }
+  </style>
+</head>
+<body>
+  <h1>08 · Calculadora básica (ejercicio 4 del profesor)</h1>
+  <div class="enunciado">
+    <b>Nivel:</b> Alto
+
+<p>Calculadora sin usar <code>eval</code>. Funciones sugeridas (pasa el valor del botón como parámetro; puedes usar <code>this.value</code> en el evento):</p>
+<ol>
+<li><b>numero(n)</b>: escribe el dígito o el punto en la pantalla. Si la pantalla está en <code>0</code>, lo sustituye. Si toca empezar un número nuevo (justo después de pulsar un operador o =), la pantalla se reemplaza. No se permiten dos puntos en el mismo número.</li>
+<li><b>operar(op)</b>: guarda el número de la pantalla y el operador (<code>+ - * /</code>). Si ya había una operación pendiente, la resuelve antes (así <code>2 + 3 *</code> muestra 5).</li>
+<li><b>igual()</b>: resuelve con un <code>switch</code>. Dividir entre 0 muestra <code>Error</code>. Redondea para evitar cosas como 0.30000000000000004. Añade al historial (textarea) la línea <code>2 + 3 = 5</code>.</li>
+<li><b>borrarTodo()</b> (C): pantalla a 0 y olvida la operación pendiente. <b>borrarUno()</b> (←): borra el último carácter; si se queda vacía, pone 0.</li>
+</ol>
+
+  </div>
+
+<div class="calc">
+  <input type="text" id="pantalla" value="0" readonly>
+  <div class="teclas">
+    <input type="button" value="7">
+    <input type="button" value="8">
+    <input type="button" value="9">
+    <input type="button" value="÷" class="op">
+    <input type="button" value="4">
+    <input type="button" value="5">
+    <input type="button" value="6">
+    <input type="button" value="×" class="op">
+    <input type="button" value="1">
+    <input type="button" value="2">
+    <input type="button" value="3">
+    <input type="button" value="-" class="op">
+    <input type="button" value="0">
+    <input type="button" value=".">
+    <input type="button" value="=" class="igual">
+    <input type="button" value="+" class="op">
+    <input type="button" value="C" class="borrar">
+    <input type="button" value="←" class="borrar">
+  </div>
+  <p>Historial:</p>
+  <textarea id="historial" rows="6" readonly></textarea>
+</div>
+
+  <script>
+        // Escribe aquí tus funciones
+
+  </script>
+</body>
+</html>

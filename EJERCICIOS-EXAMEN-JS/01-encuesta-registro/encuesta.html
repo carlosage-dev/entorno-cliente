@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01 · Formulario de registro (encuesta)</title>
+  <style>
+    body { font-family: "Segoe UI", Arial, sans-serif; background: #f3f5f9; color: #222; margin: 0; padding: 20px; }
+    h1 { font-size: 22px; margin: 0 0 12px; color: #1f3a5f; }
+    .enunciado { background: #fff8e1; border-left: 6px solid #f0a500; padding: 8px 18px; margin-bottom: 18px;
+                 font-size: 14px; line-height: 1.45; max-width: 900px; }
+    .enunciado code { background: #f1e6c3; padding: 0 4px; border-radius: 3px; }
+    .caja { background: #fff; border: 1px solid #cfd6e0; border-radius: 8px; padding: 16px; max-width: 720px;
+            margin-bottom: 14px; }
+    .fila { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+    .fila .caja { flex: 1; min-width: 300px; }
+    .centro { text-align: center; }
+    label { display: inline-block; min-width: 130px; font-weight: bold; }
+    input[type=text], select { padding: 4px; }
+    input[type=button], input[type=reset] { padding: 6px 14px; margin: 4px 2px; cursor: pointer; }
+    textarea { width: 100%; box-sizing: border-box; font-family: Consolas, monospace; font-size: 13px; tab-size: 8; }
+    .marco { width: 100px; height: 100px; border: 2px solid #333; margin-bottom: 8px; }
+    .lista { width: 100%; }
+    .reloj { font-family: Consolas, monospace; font-size: 22px; text-align: center; }
+    /* calculadora */
+    .calc { background: #2d3436; padding: 16px; border-radius: 12px; width: 280px; }
+    .calc p { color: #fff; margin: 10px 0 4px; }
+    #pantalla { width: 100%; box-sizing: border-box; font-size: 28px; text-align: right; padding: 8px; margin-bottom: 10px; }
+    .teclas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+    .teclas input { font-size: 20px; padding: 12px 0; margin: 0; border: none; border-radius: 6px; }
+    .teclas .op { background: #f39c12; color: #fff; }
+    .teclas .igual { background: #27ae60; color: #fff; }
+    .teclas .borrar { background: #c0392b; color: #fff; grid-column: span 2; }
+  </style>
+</head>
+<body>
+  <h1>01 · Formulario de registro (encuesta)</h1>
+  <div class="enunciado">
+    <b>Nivel:</b> Medio
+
+<p>Partimos del formulario de encuesta. Programa estas dos funciones:</p>
+<p><b>registrar()</b> (botón <i>Registrar</i>):</p>
+<ol>
+<li><b>Nombre</b> y <b>Apellidos</b> son obligatorios (quita los espacios sobrantes). Si falta alguno: <code>alert</code>, devuelve el foco a esa caja y no sigas.</li>
+<li><b>Correo</b>: debe tener una <code>@</code> que no esté en la primera posición y un <code>.</code> al menos dos caracteres después de la @, y no puede terminar en punto. Si no es válido: <code>alert</code>, foco y selecciona el texto de la caja.</li>
+<li><b>Edad</b>: localiza el radio marcado y muestra el rango con guion (el value <code>2040</code> se muestra como <code>20-40</code>). Usa <code>switch</code>.</li>
+<li><b>¿Cómo nos conociste?</b>: junta todas las casillas marcadas separadas por <code>", "</code>. Si no hay ninguna: <code>No indicado</code>.</li>
+<li>Población o provincia vacías se muestran como <code>-</code>.</li>
+<li>Muestra en el textarea la ficha <b>tabulada</b> (<code>\t</code> y <code>\n</code>): el nombre en MAYÚSCULAS y los apellidos con la primera letra de cada palabra en mayúscula.</li>
+<li>Guarda cada registro como <b>objeto literal</b> dentro de un <b>array</b> global y muestra al final <code>Registros guardados: N</code>.</li>
+</ol>
+<p><b>buscar()</b> (botón <i>Buscar</i>): pide con <code>prompt</code> un texto y muestra en el textarea todas las fichas cuyos apellidos lo contengan, sin distinguir mayúsculas de minúsculas. Si se cancela el prompt no hace nada. Si el array está vacío o no hay coincidencias, avísalo.</p>
+
+  </div>
+
+<form name="formulario" method="post" enctype="text/plain">
+  <label>Nombre:</label> <input type="text" name="nombre" id="nombre" size="25" maxlength="50"><br><br>
+  <label>Apellidos:</label> <input type="text" name="apellidos" id="apellidos" size="35" maxlength="100"><br><br>
+  <label>Correo electrónico:</label> <input type="text" value="@" name="correo" id="correo" size="40" maxlength="100"><br><br>
+  <label>Población:</label> <input type="text" name="poblacion" id="poblacion" size="15" maxlength="50"><br><br>
+  <label>Provincia:</label> <input type="text" name="provincia" id="provincia" size="15" maxlength="50">
+  <table width="100%" cellpadding="10">
+    <tr>
+      <td>Edad:<br>
+        <input type="radio" name="edad" value="020"> 0-20<br>
+        <input type="radio" name="edad" value="2040" checked> 20-40<br>
+        <input type="radio" name="edad" value="4060"> 40-60<br>
+        <input type="radio" name="edad" value="60100"> 60-100
+      </td>
+      <td>¿Cómo nos conociste?<br>
+        <input type="checkbox" name="conocer" value="Por amigos"> A través de un amigo.<br>
+        <input type="checkbox" name="conocer" value="Utilizando buscador"> A través de un buscador.<br>
+        <input type="checkbox" name="conocer" value="Navegando"> Navegando por la red.<br>
+        <input type="checkbox" name="conocer" value="Redes Sociales"> Redes Sociales
+      </td>
+    </tr>
+    <tr>
+      <td><input type="button" value="Registrar">
+          <input type="button" value="Buscar"></td>
+      <td><input type="reset" value="Limpiar"></td>
+    </tr>
+  </table>
+  <textarea id="objeto" rows="12"></textarea>
+</form>
+
+  <script>
+        // Escribe aquí tus funciones
+
+  </script>
+</body>
+</html>

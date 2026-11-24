@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>R4 - Bucles for, for...in y for...of</title>
+</head>
+<body>
+  <!-- AQUÍ VA EL EVENTO onclick -->
+  <button type="button" id="btnRecorrer" onclick="probar()">Probar los 3 bucles</button>
+
+  <div id="salidaR4"></div>
+
+  <script>
+    let precios = [12, 25, 8, 40, 15];
+    // Muestra en #salidaR4 qué hace cada bucle y suma el total
+    // TU CÓDIGO JS AQUÍ
+    
+    function probar(){
+        document.getElementById("salidaR4").textContent="";
+        document.getElementById("salidaR4").textContent+="ARRAY con FOR ";
+        for (let i = 0; i<precios.length;i++){
+            document.getElementById("salidaR4").textContent+= precios[i]+ " ";
+        }
+
+        document.getElementById("salidaR4").textContent+="\n";
+        document.getElementById("salidaR4").textContent+="ARRAY CON FOR..OF ";
+        for (let valor of precios){
+            document.getElementById("salidaR4").textContent+= valor + " ";
+        }
+
+        document.getElementById("salidaR4").textContent+="<br>";
+        document.getElementById("salidaR4").textContent+="ARRAY CON FOR..IN ";
+        for (let valor in precios){
+        document.getElementById("salidaR4").textContent+= precios[valor]+ " ";
+        }
+    }
+  </script>
+</body>
+</html>

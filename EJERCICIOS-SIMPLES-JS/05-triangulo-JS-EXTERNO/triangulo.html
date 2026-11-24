@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05 · Triángulo de asteriscos (JS EXTERNO)</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f3f5f9;
+      color: #222;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin: 0 0 12px;
+      color: #1f3a5f;
+    }
+
+    .enunciado {
+      background: #fff8e1;
+      border-left: 6px solid #f0a500;
+      padding: 8px 18px;
+      margin-bottom: 18px;
+      font-size: 14px;
+      line-height: 1.45;
+      max-width: 860px;
+    }
+
+    .enunciado code {
+      background: #f1e6c3;
+      padding: 0 4px;
+      border-radius: 3px;
+    }
+
+    .caja {
+      background: #fff;
+      border: 1px solid #cfd6e0;
+      border-radius: 8px;
+      padding: 16px;
+      max-width: 620px;
+    }
+
+    .centro {
+      text-align: center;
+    }
+
+    label {
+      display: inline-block;
+      min-width: 150px;
+      font-weight: bold;
+    }
+
+    input[type=text],
+    select {
+      padding: 4px;
+    }
+
+    input[type=button],
+    input[type=reset] {
+      padding: 6px 14px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+    textarea {
+      width: 100%;
+      box-sizing: border-box;
+      font-family: Consolas, monospace;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>05 · Triángulo de asteriscos (JS EXTERNO)</h1>
+  <div class="enunciado">
+    <b>Nivel:</b> Fácil (como el ejercicio 5 de la batería 1)
+
+    <p><b>Se programa en <code>triangulo.js</code></b>, que tienes que vincular con
+      <code>&lt;script src="triangulo.js"&gt;&lt;/script&gt;</code> antes de <code>&lt;/body&gt;</code>.</p>
+    <ol>
+      <li><b>dibujar()</b>: lee el número de filas (de 1 a 20; si no, avisa) y el carácter elegido en los radio
+        (<code>*</code>, <code>#</code> o <code>+</code>).</li>
+      <li>Escribe en el textarea un triángulo rectángulo: la fila 1 tiene 1 carácter, la fila 2 tiene 2... Usa dos
+        <code>for</code> (uno dentro de otro).</li>
+      <li>Si está marcada la casilla <i>Al revés</i>, la primera fila es la más larga.</li>
+    </ol>
+
+  </div>
+
+  <div class="caja">
+    <label>Número de filas</label><input type="text" id="filas" size="4" value="5"><br><br>
+    <label>Carácter</label>
+    <input type="radio" name="caracter" value="*" checked> *
+    <input type="radio" name="caracter" value="#"> #
+    <input type="radio" name="caracter" value="+"> +<br><br>
+    <label>Al revés</label><input type="checkbox" id="reves"><br><br>
+    <input type="button" value="Dibujar" onclick="dibujar()"><br><br>
+    <textarea id="dibujo" rows="12"></textarea>
+  </div>
+
+  <!-- Vincula aquí tu archivo .js con <script src=...></script> -->
+   <script src="triangulo.js" ></script>
+</body>
+
+</html>

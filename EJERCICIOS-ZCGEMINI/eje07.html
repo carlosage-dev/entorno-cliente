@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>R7 - split, replace, slice vs substring</title>
+</head>
+<body>
+  <label for="fraseR7">Frase:</label>
+  <input type="text" id="fraseR7" value="Examen de JavaScript en 2DAW">
+
+  <!-- AQUÍ VA EL EVENTO onclick -->
+  <button type="button" id="btnManipularStr" onclick="probar()">Probar métodos String</button>
+
+  <div id="salidaR7"></div>
+
+  <script>
+    // Practica split(), replace(), indexOf(), slice() y substring()
+    // TU CÓDIGO JS AQUÍ
+    function probar(){
+        let fraseInput = document.getElementById("fraseR7").value.trim().toLowerCase();
+
+        if (fraseInput == ""){
+            document.getElementById("salidaR7").textContent ="CAMPO VACIO";
+        }else{
+            document.getElementById("salidaR7").textContent ="";
+            let frase_partida = fraseInput.split(" ");
+            let frase_mod = fraseInput.replace("de", "MAGNIFICO");
+            let frase_slice = fraseInput.slice(0,10);
+            let frase_substr = fraseInput.substr(0,10);
+
+            document.getElementById("salidaR7").textContent += "Frase partida: "+ frase_partida + " ";
+            document.getElementById("salidaR7").textContent += "Frase modificada: "+ frase_mod + " ";
+            document.getElementById("salidaR7").textContent += "Frase con slice: "+ frase_slice + " ";
+            document.getElementById("salidaR7").textContent += "Frase con substr: "+ frase_substr + " ";
+        }
+    }
+  </script>
+</body>
+</html>

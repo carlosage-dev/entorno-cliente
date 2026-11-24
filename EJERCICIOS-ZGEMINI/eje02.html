@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 2 - Carácter aleatorio</title>
+</head>
+<body>
+  <label for="fraseInput">Escribe una frase:</label>
+  <!-- AQUÍ PUEDES PONER onchange SI QUIERES REINICIAR ESTADO AL CAMBIAR LA FRASE -->
+  <input type="text" id="fraseInput">
+  
+  <!-- AQUÍ VA EL EVENTO onclick PARA OBTENER EL CARÁCTER DE PARADA -->
+  <button type="button" id="btnParada" onclick="caracterParada();">Generar carácter de parada</button>
+  <span id="infoParada"></span>
+  
+  <br><br>
+  <!-- AQUÍ VA EL EVENTO onclick PARA VER UN CARÁCTER ALEATORIO -->
+  <button type="button" id="btnVer" onclick="verCaracter();">Ver</button>
+  
+  <label for="charSalida">Carácter:</label>
+  <input type="text" id="charSalida" readonly>
+  <p id="mensajeEstado"></p>
+
+  <script>
+    let posicionParada = 0;
+    function caracterParada(){
+        let fraseInput = document.getElementsByTagName("input")[0].value;
+        let fraseSinEspacios = fraseInput.replaceAll(" ","");
+        posicionParada = Math.floor(Math.random() * fraseSinEspacios.length);
+        
+    }
+
+    function verCaracter(){
+        let caracter = fraseSinEspacios[posicionParada];
+        document.getElementById("charSalida").value = caracter;
+    }
+
+
+  </script>
+</body>
+</html>

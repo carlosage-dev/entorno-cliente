@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04 · Adivina el número (1 al 100)</title>
+  <style>
+    body { font-family: "Segoe UI", Arial, sans-serif; background: #f3f5f9; color: #222; margin: 0; padding: 20px; }
+    h1 { font-size: 22px; margin: 0 0 12px; color: #1f3a5f; }
+    .enunciado { background: #fff8e1; border-left: 6px solid #f0a500; padding: 8px 18px; margin-bottom: 18px;
+                 font-size: 14px; line-height: 1.45; max-width: 860px; }
+    .enunciado code { background: #f1e6c3; padding: 0 4px; border-radius: 3px; }
+    .caja { background: #fff; border: 1px solid #cfd6e0; border-radius: 8px; padding: 16px; max-width: 620px; }
+    .centro { text-align: center; }
+    label { display: inline-block; min-width: 150px; font-weight: bold; }
+    input[type=text], select { padding: 4px; }
+    input[type=button], input[type=reset] { padding: 6px 14px; margin: 4px 2px; cursor: pointer; }
+    textarea { width: 100%; box-sizing: border-box; font-family: Consolas, monospace; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <h1>04 · Adivina el número (1 al 100)</h1>
+  <div class="enunciado">
+    <b>Nivel:</b> Medio (como el juego de adivinar del profesor, pero con cajas)
+
+<ol>
+<li>Al cargar la página, genera un número aleatorio del 1 al 100 y guárdalo en una variable <b>global</b>. Pon también un contador de intentos global a 0.</li>
+<li><b>probar()</b>: lee el número de la caja. Si no es un número entre 1 y 100, avisa. Si no, suma un intento y escribe en el textarea "Mi número es MAYOR", "Mi número es MENOR" o "¡Acertaste en N intentos!".</li>
+<li><b>nuevaPartida()</b>: genera otro número, pone los intentos a 0 y vacía la caja y el textarea.</li>
+<li><b>rendirse()</b>: muestra con <code>alert</code> cuál era el número y empieza una partida nueva.</li>
+</ol>
+
+  </div>
+
+<div class="caja centro">
+  <p>He pensado un número del 1 al 100.</p>
+  <input type="text" id="intento" size="5">
+  <input type="button" value="Probar"><br><br>
+  <input type="button" value="Nueva partida">
+  <input type="button" value="Me rindo"><br><br>
+  <textarea id="pistas" rows="3"></textarea>
+</div>
+
+  <script>
+        // Escribe aquí tus funciones
+
+  </script>
+</body>
+</html>

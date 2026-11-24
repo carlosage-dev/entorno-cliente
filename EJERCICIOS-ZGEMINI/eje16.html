@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 16 - Tabla de notas con document.write</title>
+</head>
+<body>
+  <h2>Tabla de notas de 2DAW</h2>
+  <!-- AQUÍ VA EL EVENTO onclick -->
+  <button type="button" id="btnTablaNotas" onclick="mostrarTabla()">Mostrar tabla de notas</button>
+
+  <script>
+    let alumnos = ["Lucía", "Marcos", "Elena", "Pablo"];
+    let notas = [8, 4, 6, 9];
+    // Crea una función que reciba los arrays y pinte la tabla con document.write()
+    // TU CÓDIGO JS AQUÍ
+    function realizarTabla(arrayAl , arrayNt){
+        document.write("<table border= '1'><th>Alumno</th><th>Nota</th><th>Apto</th>");
+            for (let i in arrayAl){
+                let apto ="";
+                if (arrayNt[i]>=5){
+                    apto = "Aprobado";
+                }else{
+                    apto ="Suspenso";
+                }
+                document.write("<tr><td>" + arrayAl[i]+"</td><td>"+arrayNt[i]+"</td><td>"+apto+"</td></tr>");
+                
+            }
+
+            
+        document.write("</table>");    
+
+    }
+
+    function mostrarTabla(){
+        realizarTabla(alumnos, notas);
+    }
+
+
+  </script>
+</body>
+</html>

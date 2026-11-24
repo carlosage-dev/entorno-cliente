@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>D1 - getElementsByName, getElementsByClassName e innerHTML</title>
+</head>
+<body>
+  <h3>Notas del alumno</h3>
+  <label>DWEC: <input type="number" name="notaExamen" class="campoNota" min="0" max="10"></label><br>
+  <label>DWES: <input type="number" name="notaExamen" class="campoNota" min="0" max="10"></label><br>
+  <label>DIW: <input type="number" name="notaExamen" class="campoNota" min="0" max="10"></label><br>
+  <label>DAW: <input type="number" name="notaExamen" class="campoNota" min="0" max="10"></label><br><br>
+
+  <button type="button" id="btnNotasD1" onclick="calcularResumen()">Calcular resumen</button>
+
+  <div id="salidaD1"></div>
+
+  <script>
+    function calcularResumen() {
+      // 1. Recogemos por name ("notaExamen") y también podemos ver getElementsByClassName("campoNota")
+      const inputsPorNombre = document.getElementsByName("notaExamen");
+      const inputsPorClase = document.getElementsByClassName("campoNota");
+      const salida = document.getElementById("salidaD1");
+
+      let suma = 0;
+      let aprobados = 0;
+      let notasGuardadas = [];
+
+      for (let i = 0; i < inputsPorNombre.length; i++) {
+        // Leemos el valor desde inputsPorNombre[i] (podrías usar inputsPorClase[i] igual)
+        const valorTexto = inputsPorNombre[i].value.trim();
+
+        if (valorTexto === "") {
+          salida.innerHTML = "<p><strong>Error:</strong> rellena todas las notas antes de calcular.</p>";
+          return;
+        }
+
+        const nota = Number(valorTexto);
+
+        if (isNaN(nota) || nota < 0 || nota > 10) {
+          salida.innerHTML = "<p><strong>Error:</strong> la nota en la posición " + (i + 1) + " debe estar entre 0 y 10.</p>";
+          return;
+        }
+
+        notasGuardadas.push(nota);
+        suma += nota;
+
+        if (nota >= 5) {
+          aprobados++;
+        }
+      }
+
+      const media = (suma / notasGuardadas.length).toFixed(2);
+
+      // Marcamos visualmente los inputs con su clase extra según nota (usando inputsPorClase)
+      for (let i = 0; i < inputsPorClase.length; i++) {
+        if (notasGuardadas[i] >= 5) {
+          inputsPorClase[i].style.borderColor = "green";
+        } else {
+          inputsPorClase[i].style.borderColor = "red";
+        }
+      }
+
+      // 2. Inyectamos HTML dentro del <div> usando .innerHTML
+      salida.innerHTML =
+        "<p><strong>Notas introducidas:</strong> " + notasGuardadas.join(" - ") + "</p>" +
+        "<p><strong>Media:</strong> " + media + "</p>" +
+        "<p><strong>Aprobados:</strong> " + aprobados + " de " + notasGuardadas.length + "</p>";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02 · Subida de sueldo (if / else)</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f3f5f9;
+      color: #222;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin: 0 0 12px;
+      color: #1f3a5f;
+    }
+
+    .enunciado {
+      background: #fff8e1;
+      border-left: 6px solid #f0a500;
+      padding: 8px 18px;
+      margin-bottom: 18px;
+      font-size: 14px;
+      line-height: 1.45;
+      max-width: 860px;
+    }
+
+    .enunciado code {
+      background: #f1e6c3;
+      padding: 0 4px;
+      border-radius: 3px;
+    }
+
+    .caja {
+      background: #fff;
+      border: 1px solid #cfd6e0;
+      border-radius: 8px;
+      padding: 16px;
+      max-width: 620px;
+    }
+
+    .centro {
+      text-align: center;
+    }
+
+    label {
+      display: inline-block;
+      min-width: 150px;
+      font-weight: bold;
+    }
+
+    input[type=text],
+    select {
+      padding: 4px;
+    }
+
+    input[type=button],
+    input[type=reset] {
+      padding: 6px 14px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+    textarea {
+      width: 100%;
+      box-sizing: border-box;
+      font-family: Consolas, monospace;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>02 · Subida de sueldo (if / else)</h1>
+  <div class="enunciado">
+    <b>Nivel:</b> Fácil (como el ejercicio del salario)
+
+    <p>Al pulsar <i>Calcular</i>, la función <b>calcular()</b> lee nombre, sueldo y años en la empresa y muestra en el
+      textarea el nombre, el sueldo antiguo y el sueldo nuevo con estas reglas:</p>
+    <ul>
+      <li>Sueldo mayor de 2000 €: no cambia.</li>
+      <li>Sueldo entre 1000 y 2000 €: si lleva más de 5 años sube un 5 %; si no, un 2 %.</li>
+      <li>Sueldo menor de 1000 €: sube 100 € fijos.</li>
+    </ul>
+    <p>Si el sueldo o los años no son números, avisa con <code>alert</code> y no sigas.</p>
+
+  </div>
+
+  <div class="caja">
+    <label>Nombre</label><input type="text" id="nombre"><br><br>
+    <label>Sueldo (€)</label><input type="text" id="sueldo"><br><br>
+    <label>Años en la empresa</label><input type="text" id="anios"><br><br>
+    <input type="button" value="Calcular" onclick="calcular()"><br><br>
+    <textarea id="resultado" rows="4"></textarea>
+  </div>
+
+  <script>
+    // Escribe aquí tus funciones
+    function calcular() {
+      let nombre = document.getElementById("nombre").value;
+      let sueldo = document.getElementById("sueldo").value;
+      let anos = document.getElementById("anios").value;
+
+      if (nombre == "" || sueldo =="" || anos ==""){
+        document.getElementsByTagName("textarea")[0].value = "RELLENA TODOS LOS CAMPOS";
+        return;
+      }
+
+      sueldo = parseFloat(sueldo);
+      let sueldoAntiguo = sueldo;
+      anos = parseInt(anos);
+
+      if (isNaN(sueldo)){
+        document.getElementsByTagName("textarea")[0].value = "Sueldo no válido";
+        return;
+      }else if (sueldo<=0){
+        document.getElementsByTagName("textarea")[0].value = "Sueldo en negativo o 0?";
+        return;
+      }
+
+      if (isNaN(anos)){
+        document.getElementsByTagName("textarea")[0].value = "Años no válido";
+        return;
+      }else if (anos<=0){
+        document.getElementsByTagName("textarea")[0].value = "Años en negativo o 0?";
+        return
+      }
+
+      if (sueldo<1000){
+        sueldo+=100;
+      }else if (sueldo>=1000 && sueldo<=2000 && anos <=5){
+          sueldo = sueldo*1.02;
+      }else if (sueldo>=1000 && sueldo<=2000 && anos >5){
+          sueldo = sueldo*1.05;
+      }else if (sueldo >2000){
+        sueldo = sueldoAntiguo;
+      }
+      
+      document.getElementById("resultado").value = "Nombre: "+nombre + " Sueldo antiguo "+sueldoAntiguo + " Sueldo nuevo "+sueldo;
+
+    }
+  </script>
+</body>
+
+</html>

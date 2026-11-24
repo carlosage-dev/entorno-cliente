@@ -1,0 +1,22 @@
+EJERCICIOS SIMPLES - EXAMEN JAVASCRIPT
+=======================================
+
+Igual que el otro zip: HTML y CSS hechos, enunciado arriba en la página.
+Tú pones los eventos (onclick / onchange / onload) y escribes las funciones
+en el <script> vacío. El 05 y el 09 van en un .js aparte que tienes que
+vincular con <script src="..."></script>.
+
+01 Par o impar ............... prompt, isNaN, %, alert
+02 Subida de sueldo .......... if / else if anidados
+03 Tabla y factorial ......... for
+04 Adivina el número ......... variables globales, Math.random
+05 Triángulo (JS EXTERNO) .... for anidados, radio, checkbox
+06 Color aleatorio ........... Math.random, style, onload
+07 Letra aleatoria ........... charAt, length, for sobre un texto
+08 Buscar ciudad ............. indexOf, toLowerCase, split
+09 Media de notas (EXTERNO) .. array, push, pop, join
+10 Dado con imágenes ......... img.src, array de contadores
+11 Menú del día .............. select, radio, checkbox, textarea
+12 Figuras con select ........ select + onchange + imagen
+
+Las soluciones van en SOLUCIONES-SIMPLES-JS.zip.

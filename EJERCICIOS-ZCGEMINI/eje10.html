@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>F2 - Año, mes, día, día de la semana y hora actual</title>
+</head>
+<body>
+  <button type="button" id="btnReloj" onclick="verFechaYHora()">Ver fecha y hora exacta</button>
+  <p id="salidaReloj"></p>
+
+  <script>
+    function nombreDiaSemana(numDia) {
+      // Usa switch (0 = Domingo, 1 = Lunes ... 6 = Sábado) y devuelve el texto
+      // TU CÓDIGO JS AQUÍ
+      switch(numDia){
+        case 0: return "Domingo";
+        break;
+
+        case 1: return "Lunes";
+        break;
+
+        case 2: return "Martes";
+        break;
+
+        case 3: return "Miercoles";
+        break;
+        
+        case 4: return "Jueves";
+        break;
+
+        case 5: return "Viernes";
+        break;
+
+        case 6: return "Sabado";
+        break;
+      }
+    }
+
+    function verFechaYHora() {
+      // Usa new Date(), getFullYear(), getMonth(), getDate(), getDay(),
+      // getHours(), getMinutes(), getSeconds() y muestra el resultado en #salidaReloj
+      // TU CÓDIGO JS AQUÍ
+      const ahora = new Date();
+      let año = ahora.getFullYear();
+      let mes = ahora.getMonth()+1;
+      let dia = ahora.getDay();
+      
+      let fechaAhora = ahora.toLocaleDateString("es-ES");
+      let horaAhora = ahora.toLocaleTimeString("es-ES");
+    
+      let nombredia =nombreDiaSemana(dia);
+
+      document.getElementById("salidaReloj").textContent = "Fecha: "+fechaAhora + "Hora: "+ horaAhora + "Dia de la semana: "+nombredia;
+    }
+  </script>
+</body>
+</html>

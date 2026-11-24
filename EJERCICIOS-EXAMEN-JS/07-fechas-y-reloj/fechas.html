@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>07 · Fechas de nacimiento y reloj (Date y timers)</title>
+  <style>
+    body { font-family: "Segoe UI", Arial, sans-serif; background: #f3f5f9; color: #222; margin: 0; padding: 20px; }
+    h1 { font-size: 22px; margin: 0 0 12px; color: #1f3a5f; }
+    .enunciado { background: #fff8e1; border-left: 6px solid #f0a500; padding: 8px 18px; margin-bottom: 18px;
+                 font-size: 14px; line-height: 1.45; max-width: 900px; }
+    .enunciado code { background: #f1e6c3; padding: 0 4px; border-radius: 3px; }
+    .caja { background: #fff; border: 1px solid #cfd6e0; border-radius: 8px; padding: 16px; max-width: 720px;
+            margin-bottom: 14px; }
+    .fila { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+    .fila .caja { flex: 1; min-width: 300px; }
+    .centro { text-align: center; }
+    label { display: inline-block; min-width: 130px; font-weight: bold; }
+    input[type=text], select { padding: 4px; }
+    input[type=button], input[type=reset] { padding: 6px 14px; margin: 4px 2px; cursor: pointer; }
+    textarea { width: 100%; box-sizing: border-box; font-family: Consolas, monospace; font-size: 13px; tab-size: 8; }
+    .marco { width: 100px; height: 100px; border: 2px solid #333; margin-bottom: 8px; }
+    .lista { width: 100%; }
+    .reloj { font-family: Consolas, monospace; font-size: 22px; text-align: center; }
+    /* calculadora */
+    .calc { background: #2d3436; padding: 16px; border-radius: 12px; width: 280px; }
+    .calc p { color: #fff; margin: 10px 0 4px; }
+    #pantalla { width: 100%; box-sizing: border-box; font-size: 28px; text-align: right; padding: 8px; margin-bottom: 10px; }
+    .teclas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+    .teclas input { font-size: 20px; padding: 12px 0; margin: 0; border: none; border-radius: 6px; }
+    .teclas .op { background: #f39c12; color: #fff; }
+    .teclas .igual { background: #27ae60; color: #fff; }
+    .teclas .borrar { background: #c0392b; color: #fff; grid-column: span 2; }
+  </style>
+</head>
+<body>
+  <h1>07 · Fechas de nacimiento y reloj (Date y timers)</h1>
+  <div class="enunciado">
+    <b>Nivel:</b> Medio-Alto
+
+<p><b>calcular()</b> (botón Calcular):</p>
+<ol>
+<li>Lee día, mes y año. Si alguno no es número, avisa.</li>
+<li>Crea la fecha con <code>new Date(año, mes-1, día)</code> y comprueba que <b>existe</b>: si escriben 31/2/2005, JavaScript la convierte en 3 de marzo, así que compara <code>getDate()</code>, <code>getMonth()</code> y <code>getFullYear()</code> con lo introducido. Tampoco puede ser una fecha futura.</li>
+<li>Muestra en el textarea:
+  <ul><li>la fecha completa: <code>Naciste el jueves, 5 de marzo de 2001</code> (usa dos arrays: días de la semana empezando en domingo y meses);</li>
+  <li>la <b>edad exacta</b> en años (resta los años y quita uno si este año aún no ha llegado su cumpleaños);</li>
+  <li>los <b>días vividos</b>, con milisegundos: (hoy − nacimiento) / 86 400 000, redondeando hacia abajo;</li>
+  <li>los <b>días que faltan</b> para su próximo cumpleaños. Si es hoy: <code>¡Feliz cumpleaños!</code></li></ul></li>
+</ol>
+<p><b>Reloj</b>: <b>iniciarReloj()</b> muestra la hora <code>HH:MM:SS</code> en la caja y la actualiza cada segundo con <code>setInterval</code>. Si ya está en marcha, no crea otro. <b>pararReloj()</b> lo detiene con <code>clearInterval</code>.</p>
+
+  </div>
+
+<div class="caja">
+  <h3>Fecha de nacimiento</h3>
+  Día: <input type="text" id="dia" size="3">
+  Mes: <input type="text" id="mes" size="3">
+  Año: <input type="text" id="anio" size="5">
+  <input type="button" value="Calcular"><br><br>
+  <textarea id="resultado" rows="6"></textarea>
+  <h3>Reloj</h3>
+  <input type="text" id="reloj" size="10" readonly class="reloj">
+  <input type="button" value="Iniciar">
+  <input type="button" value="Parar">
+</div>
+
+  <script>
+        // Escribe aquí tus funciones
+
+  </script>
+</body>
+</html>

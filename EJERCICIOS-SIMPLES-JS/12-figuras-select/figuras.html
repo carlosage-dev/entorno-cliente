@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12 · Cambiar imagen con un select (como Galaxias)</title>
+  <style>
+    body { font-family: "Segoe UI", Arial, sans-serif; background: #f3f5f9; color: #222; margin: 0; padding: 20px; }
+    h1 { font-size: 22px; margin: 0 0 12px; color: #1f3a5f; }
+    .enunciado { background: #fff8e1; border-left: 6px solid #f0a500; padding: 8px 18px; margin-bottom: 18px;
+                 font-size: 14px; line-height: 1.45; max-width: 860px; }
+    .enunciado code { background: #f1e6c3; padding: 0 4px; border-radius: 3px; }
+    .caja { background: #fff; border: 1px solid #cfd6e0; border-radius: 8px; padding: 16px; max-width: 620px; }
+    .centro { text-align: center; }
+    label { display: inline-block; min-width: 150px; font-weight: bold; }
+    input[type=text], select { padding: 4px; }
+    input[type=button], input[type=reset] { padding: 6px 14px; margin: 4px 2px; cursor: pointer; }
+    textarea { width: 100%; box-sizing: border-box; font-family: Consolas, monospace; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <h1>12 · Cambiar imagen con un select (como Galaxias)</h1>
+  <div class="enunciado">
+    <b>Nivel:</b> Fácil (ejercicio 3 de la propuesta BOM III)
+
+<ol>
+<li><b>cambiarFigura()</b>: cuando se <b>cambie</b> la opción del select, pon en la imagen <code>img/figura-X.svg</code>, donde X es el value de la opción elegida.</li>
+<li>Escribe debajo, en el párrafo <i>nombre</i>, el texto de la figura elegida (puedes guardar los nombres en un array y usar el value como posición).</li>
+<li>Si se vuelve a "Selecciona una figura", pon <code>img/figura-inicio.svg</code> y vacía el párrafo.</li>
+</ol>
+
+  </div>
+
+<div class="caja centro">
+  <img id="foto" src="img/figura-inicio.svg" width="200" height="200" alt="figura"><br>
+  <p id="nombre"></p>
+  Selecciona una opción:
+  <select id="figuras">
+    <option value="">Selecciona una figura</option>
+    <option value="0">Figura 1</option>
+    <option value="1">Figura 2</option>
+    <option value="2">Figura 3</option>
+    <option value="3">Figura 4</option>
+  </select>
+</div>
+
+  <script>
+        // Escribe aquí tus funciones
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>F1 - Select, switch y tabla con document.write</title>
+</head>
+<body>
+  <label for="vistaSelect">¿Qué tabla quieres pintar?</label>
+  <select id="vistaSelect" onchange="elegirTabla()">
+    <option value="">-- Selecciona --</option>
+    <option value="notas">Tabla de notas</option>
+    <option value="modulos">Tabla de módulos 2DAW</option>
+    <option value="reemplazo">Ejemplo splice (insertar/reemplazar)</option>
+  </select>
+
+  <script>
+    let alumnos = ["Ana", "Luis", "Sofía"];
+    let notas = [7, 4, 9];
+    let modulos = ["DWEC", "DWES", "DIW", "DAW"];
+    let opcion="";
+    function elegirTabla() {
+      // Usa switch con el valor del select y llama a funciones con document.write()
+      // TU CÓDIGO JS AQUÍ
+
+      opcion =  document.getElementById("vistaSelect").value;
+
+      switch (opcion){
+        case "notas": pintarTabla(notas);
+        break;
+
+        case "modulos": pintarTabla(modulos);
+        break;
+
+        case "alumnos": pintarTabla(alumnos);
+        break;
+
+      }
+    }
+
+    function pintarTabla(tabla){
+        document.write("<table border='1'><tr><th>"+opcion+"</th></tr>");
+            for(let i = 0; i<tabla.length;i++){
+                document.write("<tr><td>"+tabla[i]+"</td></tr>");
+            }
+    }
+  </script>
+</body>
+</html>

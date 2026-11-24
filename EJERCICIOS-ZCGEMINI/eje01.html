@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>R1 - Cronómetro con Date y milisegundos</title>
+</head>
+<body>
+  <!-- AQUÍ VA EL EVENTO onclick PARA GUARDAR LA HORA INICIAL -->
+  <button type="button" id="btnMarcar" onclick="horaRegistro()">Marcar hora de inicio</button>
+
+  <!-- AQUÍ VA EL EVENTO onclick PARA CALCULAR CUÁNTO HA PASADO -->
+  <button type="button" id="btnDiferencia" onclick="tiempo()">Calcular tiempo transcurrido</button>
+
+  <p id="salidaR1"></p>
+
+  <script>
+    // Guarda aquí la fecha/hora cuando pulsen "Marcar hora de inicio"
+    // Al pulsar "Calcular tiempo transcurrido", resta milisegundos con .getTime()
+    // TU CÓDIGO JS AQUÍ
+    let horaActual =0;
+    let horaDiferencia=0;
+    let tiempoTranscurrido=0;
+    function horaRegistro(){
+        let fechaActualRegistro = new Date();
+        horaActual = fechaActualRegistro.getTime();
+    }
+
+    function tiempo(){
+        let fechaActualDiferencia = new Date();
+        horaDiferencia = fechaActualDiferencia.getTime();
+        tiempoTranscurrido = horaDiferencia-horaActual;
+
+        tiempoTranscurrido = tiempoTranscurrido/1000;
+
+        document.getElementById("salidaR1").textContent = tiempoTranscurrido+"SEGUNDOS";
+    }
+  </script>
+</body>
+</html>

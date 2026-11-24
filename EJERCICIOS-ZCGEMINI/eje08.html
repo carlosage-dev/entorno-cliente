@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>C1 - Combinado: Date, Array, charAt y bucles</title>
+</head>
+<body>
+  <label for="nombreFichaje">Nombre del alumno/a:</label>
+  <input type="text" id="nombreFichaje" placeholder="Ej: lucía">
+
+  <button type="button" id="btnFichar" onclick="fichar()">Fichar ahora</button>
+  <button type="button" id="btnResumenFichajes" onclick="verResumen()">Ver resumen</button>
+
+  <p id="estadoFichaje"></p>
+  <div id="listaFichajes"></div>
+
+  <script>
+    let fichajes = [];
+    let ultimoFichajeMs = null;
+
+    function fichar() {
+      const inputElem = document.getElementById("nombreFichaje");
+      const estadoElem = document.getElementById("estadoFichaje");
+      const nombreLimpio = inputElem.value.trim();
+
+      if (nombreLimpio === "") {
+        estadoElem.textContent = "Escribe un nombre antes de fichar.";
+        return;
+      }
+
+      // 1. Primera letra en mayúscula con charAt(0)
+      const inicial = nombreLimpio.charAt(0).toUpperCase();
+      const resto = nombreLimpio.slice(1).toLowerCase();
+      const nombreFormateado = inicial + resto;
+
+      // 2. Fecha/hora actual y diferencia con el fichaje anterior en milisegundos
+      const ahora = new Date();
+      const ahoraMs = ahora.getTime();
+      let textoDiferencia = "Primer fichaje registrado.";
+
+      if (ultimoFichajeMs !== null) {
+        const diffMs = ahoraMs - ultimoFichajeMs;
+        const segundos = Math.floor(diffMs / 1000);
+        textoDiferencia = "Han pasado " + segundos + " s (" + diffMs + " ms) desde el fichaje anterior.";
+      }
+
+      ultimoFichajeMs = ahoraMs;
+
+      // 3. Guardar en el array como texto sencillo (sin JSON)
+      const horaTexto = ahora.toLocaleTimeString("es-ES");
+      const registro = inicial + ". (" + nombreFormateado + ") - Hora: " + horaTexto + " | " + textoDiferencia;
+      fichajes.push(registro);
+
+      estadoElem.textContent = "Fichaje guardado para " + nombreFormateado + ". " + textoDiferencia;
+      inputElem.value = "";
+    }
+
+    function verResumen() {
+      const listaElem = document.getElementById("listaFichajes");
+
+      if (fichajes.length === 0) {
+        listaElem.innerHTML = "<p>Todavía no hay fichajes registrados.</p>";
+        return;
+      }
+
+      let html = "<h3>Total de fichajes: " + fichajes.length + "</h3><ul>";
+
+      // Recorrer el array con for...of
+      for (let ficha of fichajes) {
+        html += "<li>" + ficha + "</li>";
+      }
+
+      html += "</ul>";
+      listaElem.innerHTML = html;
+    }
+  </script>
+</body>
+</html>

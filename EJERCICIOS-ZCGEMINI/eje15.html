@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>M1 - Select multiple y suma</title>
+</head>
+<body>
+  <label for="extrasPlan">Elige extras:</label><br>
+  <select id="extrasPlan" multiple size="4">
+    <option value="10">Soporte 24h (10€)</option>
+    <option value="25">Copias diarias (25€)</option>
+    <option value="15">Dominio extra (15€)</option>
+    <option value="30">Servidor dedicado (30€)</option>
+  </select><br><br>
+
+  <!-- PON AQUÍ EL EVENTO onclick -->
+  <button type="button" id="btnCalcularM1" onclick="calcular()">Calcular total</button>
+  <p id="salidaM1"></p>
+
+  <script>
+    // Recorre sel.options, mira .selected, suma Number(sel.options[i].value)
+    // y muestra cuántas hay marcadas y el total
+    // TU CÓDIGO JS AQUÍ
+
+   function calcular(){
+     let opciones = document.getElementById("extrasPlan");
+     let salida = document.getElementById("salidaM1");
+     let sumaTotal=0;
+     let texto="";
+
+
+
+     for (let i = 0; i<opciones.options.length;i++){
+        
+
+        if (opciones.options[i].selected){
+            switch(opciones.options[i].value){
+            case "10": texto +=" 10 € Soporte 24H ";
+            break;
+            case "25": texto +=" 25 € Copias Diarias ";
+            break;
+
+            case "15": texto +=" 15 € Dominio extra ";
+            break;
+
+            case "30": texto +=" 30 € Servidor dedicado ";
+            break;
+            
+        }
+            sumaTotal += Number(opciones.options[i].value);    
+        }
+     }
+
+     if (sumaTotal == 0 ){
+        salida.innerHTML = "SELECCIONA ALGO MI HERMANO";
+     }else{
+        salida.innerHTML =texto + "TOTAL ASCIENDE A : " + sumaTotal +"€ ";
+     }
+
+     
+   }
+
+  </script>
+</body>
+</html>

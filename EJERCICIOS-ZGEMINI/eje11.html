@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 11 - Métodos de Array y switch</title>
+</head>
+<body>
+  <p>Array actual: <strong id="vistaArray"></strong></p>
+
+  <label for="datoArray">Elemento / Índice:</label>
+  <input type="text" id="datoArray" placeholder="Ej: Sofía o 1">
+
+  <label for="operacionArray">Operación:</label>
+  <select id="operacionArray" onchange="ejecutarOperacion();">
+    <option value="">-- Elige operación --</option>
+    <option value="push">Añadir al final (push)</option>
+    <option value="unshift">Añadir al principio (unshift)</option>
+    <option value="pop">Eliminar último (pop)</option>
+    <option value="shift">Eliminar primero (shift)</option>
+    <option value="splice">Eliminar posición con splice(pos, 1)</option>
+    <option value="delete">Borrar posición con delete array[pos]</option>
+    <option value="reverse">Invertir orden (reverse)</option>
+    <option value="slice">Extraer copia parcial (slice 1, 3)</option>
+  </select>
+
+  <p id="infoOperacion"></p>
+
+  <script>
+    let lista = ["Ana", "Luis", "Marta", "Carlos"];
+
+    function actualizarVista() {
+      document.getElementById("vistaArray").textContent =
+        JSON.stringify(lista) + " | length: " + lista.length;
+    }
+
+    function ejecutarOperacion() {
+      const selectElem = document.getElementById("operacionArray");
+      const inputElem = document.getElementById("datoArray");
+      const infoElem = document.getElementById("infoOperacion");
+
+      const operacion = selectElem.value;
+      const dato = inputElem.value.trim();
+      let mensaje = "";
+
+      switch (operacion) {
+        case "push":
+          if (dato === "") {
+            mensaje = "Escribe un nombre en el campo de texto para usar push.";
+          } else {
+            lista.push(dato);
+            mensaje = "Se añadió '" + dato + "' al final. Nuevo length: " + lista.length;
+            inputElem.value = "";
+          }
+          break;
+
+        case "unshift":
+          if (dato === "") {
+            mensaje = "Escribe un nombre en el campo de texto para usar unshift.";
+          } else {
+            lista.unshift(dato);
+            mensaje = "Se añadió '" + dato + "' al principio. Nuevo length: " + lista.length;
+            inputElem.value = "";
+          }
+          break;
+
+        case "pop":
+          if (lista.length === 0) {
+            mensaje = "El array está vacío, no se puede hacer pop.";
+          } else {
+            const eliminado = lista.pop();
+            mensaje = "Se eliminó el último elemento ('" + eliminado + "'). Nuevo length: " + lista.length;
+          }
+          break;
+
+        case "shift":
+          if (lista.length === 0) {
+            mensaje = "El array está vacío, no se puede hacer shift.";
+          } else {
+            const eliminado = lista.shift();
+            mensaje = "Se eliminó el primer elemento ('" + eliminado + "'). Nuevo length: " + lista.length;
+          }
+          break;
+
+        case "splice": {
+          const indice = parseInt(dato, 10);
+          if (isNaN(indice) || indice < 0 || indice >= lista.length) {
+            mensaje = "Introduce un índice válido entre 0 y " + (lista.length - 1) + " para splice.";
+          } else {
+            const borrados = lista.splice(indice, 1);
+            mensaje = "splice(" + indice + ", 1) eliminó '" + borrados[0] + "' y reordenó índices. Nuevo length: " + lista.length;
+            inputElem.value = "";
+          }
+          break;
+        }
+
+        case "delete": {
+          const indice = parseInt(dato, 10);
+          if (isNaN(indice) || indice < 0 || indice >= lista.length) {
+            mensaje = "Introduce un índice válido entre 0 y " + (lista.length - 1) + " para delete.";
+          } else {
+            delete lista[indice];
+            mensaje = "delete lista[" + indice + "] borró el valor pero dejó un hueco (undefined/empty). El length sigue siendo: " + lista.length;
+            inputElem.value = "";
+          }
+          break;
+        }
+
+        case "reverse":
+          lista.reverse();
+          mensaje = "Se invirtió el orden del array original. length: " + lista.length;
+          break;
+
+        case "slice": {
+          const copia = lista.slice(1, 3);
+          mensaje = "slice(1, 3) devolvió " + JSON.stringify(copia) + " sin modificar el array original. length del original: " + lista.length;
+          break;
+        }
+
+        default:
+          mensaje = "Selecciona una operación válida.";
+          break;
+      }
+
+      actualizarVista();
+      infoElem.textContent = mensaje;
+      selectElem.value = "";
+    }
+
+    // Mostrar el array inicial al cargar la página
+    actualizarVista();
+  </script>
+</body>
+</html>

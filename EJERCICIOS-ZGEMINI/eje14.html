@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 14 - Arrays sencillos</title>
+</head>
+<body>
+  <label for="frutaInput">Nueva fruta:</label>
+  <input type="text" id="frutaInput">
+
+  <!-- AQUÍ VAN LOS EVENTOS onclick -->
+  <button type="button" id="btnPush" onclick="añadirFinal()">Añadir al final (push)</button>
+  <button type="button" id="btnPop" onclick="quitarUltimo()">Quitar último (pop)</button>
+  <button type="button" id="btnOrdenar" onclick="ordenar()">Ordenar (sort)</button>
+  <button type="button" id="btnInvertir" onclick="invertir()">Invertir (reverse)</button>
+
+  <p>Lista actual: <strong id="listaFrutas" ></strong></p>
+  <p id="infoBucles"></p>
+
+  <script>
+
+    // Array inicial sencillo y muestra con .join(" - ")
+    // Recorre con for...in (índices) y for...of (valores) para ver la diferencia
+    // TU CÓDIGO JS AQUÍ
+    let arrayFrutas = ["Manzana" , "Pera", "Platano", "Sandia", "Melon"];
+
+    function verListaActual(){
+        let textofrutas = arrayFrutas.join(" - ");
+        document.getElementById("listaFrutas").textContent = textofrutas;
+    }
+    verListaActual();
+
+    function añadirFinal(){
+        let nuevaFruta = document.getElementById("frutaInput").value;
+        arrayFrutas.push(nuevaFruta);
+        document.getElementById("infoBucles").textContent = "Se ha añadido " + nuevaFruta +" al array";
+        verListaActual();
+    }
+
+    function quitarUltimo(){
+        if (arrayFrutas.length <= 0){
+            document.getElementById("infoBucles").textContent = "No hay ningun elemento en el array";
+        }else{
+            let eliminado = arrayFrutas.pop();
+            document.getElementById("infoBucles").textContent = "Se ha eliminado el ultimo elemento " + eliminado;
+        }
+        verListaActual();
+    }
+
+    function ordenar(){
+        arrayFrutas.sort();
+        verListaActual();
+    }
+
+    function invertir(){
+        arrayFrutas.reverse();
+        verListaActual();
+    }
+
+
+  </script>
+</body>
+</html>

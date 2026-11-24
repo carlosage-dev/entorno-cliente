@@ -1,0 +1,33 @@
+EJERCICIOS DE PREPARACIÓN - EXAMEN JAVASCRIPT (2º DAW, 1ª evaluación)
+=====================================================================
+
+Cómo trabajar cada ejercicio
+----------------------------
+1. Abre la carpeta en Visual Studio Code y el .html con Live Server (o doble clic).
+2. El enunciado está arriba, en el recuadro amarillo de la propia página.
+3. El HTML y el CSS ya están hechos. Tú solo tienes que:
+     - añadir en el HTML los eventos (onclick / onchange) donde creas que van,
+     - escribir las funciones dentro del <script> vacío del final del body.
+4. Los ejercicios 09 y 10 se programan en un archivo .js aparte (ya creado,
+   vacío). Tienes que vincularlo tú con <script src="..."></script>.
+5. Abre la consola (F12) para ver los errores mientras trabajas.
+
+Ejercicios
+----------
+01 Formulario de registro (encuesta) .... radio, checkbox, validar, array de objetos, prompt
+02 Ficha de socio (estilo Sr./Sra.) ...... onchange en radio y select, imagen, DNI, switch, reset()
+03 Galería de planetas ................... select + imagen (tipo Galaxias), selectedIndex, Set
+04 Pizzería .............................. select, radio, checkbox, toFixed, Date + 35 min
+05 Dados con imágenes .................... Math.random, imágenes, Map, asteriscos
+06 Analizador de texto ................... String a fondo, palíndromo, César, switch
+07 Fechas y reloj ........................ Date, validar fecha, milisegundos, setInterval
+08 Calculadora ........................... ejercicio 4 del profesor, this.value, switch
+09 Primitiva (JS EXTERNO) ................ Set, sort numérico, split, Map de premios
+10 Gestor de notas (JS EXTERNO) .......... Map, select dinámico, sort, Math.max(...)
+
+Orden recomendado si vas justo de tiempo: 02, 03, 01, 05, 04, 09, 06, 10, 07, 08.
+(El 02 es casi calcado al HTML que el profesor tituló "Examen JavaScript".)
+
+Las soluciones van en un zip aparte (SOLUCIONES-EXAMEN-JS.zip). Intenta cada
+ejercicio antes de abrirlas; están hechas con lo que se ha dado en clase
+(getElementById, getElementsByName, for, switch, value, checked, selectedIndex...).

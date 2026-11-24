@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10 · Gestor de notas con Map (JS EXTERNO)</title>
+  <style>
+    body { font-family: "Segoe UI", Arial, sans-serif; background: #f3f5f9; color: #222; margin: 0; padding: 20px; }
+    h1 { font-size: 22px; margin: 0 0 12px; color: #1f3a5f; }
+    .enunciado { background: #fff8e1; border-left: 6px solid #f0a500; padding: 8px 18px; margin-bottom: 18px;
+                 font-size: 14px; line-height: 1.45; max-width: 900px; }
+    .enunciado code { background: #f1e6c3; padding: 0 4px; border-radius: 3px; }
+    .caja { background: #fff; border: 1px solid #cfd6e0; border-radius: 8px; padding: 16px; max-width: 720px;
+            margin-bottom: 14px; }
+    .fila { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+    .fila .caja { flex: 1; min-width: 300px; }
+    .centro { text-align: center; }
+    label { display: inline-block; min-width: 130px; font-weight: bold; }
+    input[type=text], select { padding: 4px; }
+    input[type=button], input[type=reset] { padding: 6px 14px; margin: 4px 2px; cursor: pointer; }
+    textarea { width: 100%; box-sizing: border-box; font-family: Consolas, monospace; font-size: 13px; tab-size: 8; }
+    .marco { width: 100px; height: 100px; border: 2px solid #333; margin-bottom: 8px; }
+    .lista { width: 100%; }
+    .reloj { font-family: Consolas, monospace; font-size: 22px; text-align: center; }
+    /* calculadora */
+    .calc { background: #2d3436; padding: 16px; border-radius: 12px; width: 280px; }
+    .calc p { color: #fff; margin: 10px 0 4px; }
+    #pantalla { width: 100%; box-sizing: border-box; font-size: 28px; text-align: right; padding: 8px; margin-bottom: 10px; }
+    .teclas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+    .teclas input { font-size: 20px; padding: 12px 0; margin: 0; border: none; border-radius: 6px; }
+    .teclas .op { background: #f39c12; color: #fff; }
+    .teclas .igual { background: #27ae60; color: #fff; }
+    .teclas .borrar { background: #c0392b; color: #fff; grid-column: span 2; }
+  </style>
+</head>
+<body>
+  <h1>10 · Gestor de notas con Map (JS EXTERNO)</h1>
+  <div class="enunciado">
+    <b>Nivel:</b> Alto
+
+<p><b>Este ejercicio se programa en el archivo <code>notas.js</code></b> (vincúlalo con <code>src</code> antes de <code>&lt;/body&gt;</code>). Los alumnos se guardan en un <b>Map</b>: clave = nombre, valor = nota.</p>
+<ol>
+<li><b>anadir()</b>: el nombre no puede estar vacío y se guarda con la primera letra en mayúscula y el resto en minúscula. La nota admite coma o punto decimal y debe estar entre 0 y 10. Si el alumno ya existe, pregunta con <code>confirm</code> si se sustituye su nota. Después limpia las cajas, pon el foco en el nombre y actualiza la lista.</li>
+<li><b>actualizarLista()</b>: vacía el select y añade una opción por alumno con el texto <code>Nombre (nota)</code> y el nombre como value (<code>new Option(texto, valor)</code> y <code>select.options.add(...)</code>, o <code>innerHTML</code>).</li>
+<li><b>seleccionar()</b>: al <b>cambiar</b> la selección del select, copia el nombre y la nota de ese alumno a las cajas.</li>
+<li><b>buscar()</b> y <b>borrar()</b>: con el nombre escrito en la caja. Si no existe, avisa. Buscar muestra <code>Nombre: nota (calificación)</code>; borrar lo elimina del Map y de la lista.</li>
+<li><b>calificacion(nota)</b>: devuelve Insuficiente (&lt;5), Suficiente (&lt;6), Bien (&lt;7), Notable (&lt;9) o Sobresaliente.</li>
+<li><b>listado()</b>: alumnos ordenados de mayor a menor nota, tabulados: <code>posición \t nombre \t nota \t calificación</code>.</li>
+<li><b>estadisticas()</b>: nº de alumnos, media (2 decimales), nota máxima y quién la tiene (pueden ser varios), nota mínima, aprobados y % de aprobados. Usa <code>Math.max(...array)</code>.</li>
+</ol>
+
+  </div>
+
+<div class="fila">
+ <div class="caja">
+  <label>Nombre</label><input type="text" id="nombre"><br><br>
+  <label>Nota</label><input type="text" id="nota" size="5"><br><br>
+  <input type="button" value="Añadir">
+  <input type="button" value="Buscar">
+  <input type="button" value="Borrar"><br><br>
+  <label>Alumnos</label><br>
+  <select id="lista" size="8" class="lista"></select>
+ </div>
+ <div class="caja">
+  <input type="button" value="Listado ordenado">
+  <input type="button" value="Estadísticas"><br><br>
+  <textarea id="salida" rows="14" cols="45"></textarea>
+ </div>
+</div>
+
+  <!-- Vincula aquí tu archivo .js con <script src=...></script> -->
+</body>
+</html>

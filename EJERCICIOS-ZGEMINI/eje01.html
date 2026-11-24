@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 1 - Media de serie</title>
+</head>
+<body>
+  <label for="numInput">Introduce un número (0 para finalizar):</label>
+  <!-- AQUÍ PUEDES PONER UN EVENTO onchange O USAR EL BOTÓN CON onclick -->
+  <input type="text" id="numInput">
+  
+  <!-- AQUÍ VA EL EVENTO onclick -->
+  <button type="button" id="btnAnadir" onclick="añadir();">Añadir</button>
+  
+  <br><br>
+  <label for="mediaSalida">Media:</label>
+  <input type="text" id="mediaSalida" readonly>
+
+  <script>
+    let numeros = new Array;
+    let media = 0;
+    
+
+    function añadir(){
+        let numeroInput =  document.getElementById("numInput").value;
+        document.getElementById("mediaSalida").value = "";
+
+
+        if (numeroInput === ""){
+            document.getElementById("mediaSalida").value = "Error campo vacio";
+        }else if ( isNaN(numeroInput)){
+            document.getElementById("mediaSalida").value = "Introduce un número válido";
+        }else{
+            let numeroReal = Number(numeroInput);
+            
+            if (numeroReal ===0){
+                let sumatotal=0;
+                for (let valor of numeros){
+                    sumatotal = sumatotal+valor;
+                }
+                media = sumatotal /numeros.length;
+                document.getElementById("mediaSalida").value = "La media es "+media;
+            }else{
+                numeros.push(numeroReal);
+            }
+        }
+
+
+    }
+  </script>
+</body>
+</html>

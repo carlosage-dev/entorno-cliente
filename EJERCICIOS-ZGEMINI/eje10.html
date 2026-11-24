@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 10 - Lotería Primitiva</title>
+</head>
+<body>
+  <h2>Generador de 50 apuestas de Primitiva</h2>
+  <button type="button" id="btnLoteria" onclick="generarApuestas();">Generar 50 combinaciones</button>
+
+  <script>
+    function pintarTabla(listaApuestas) {
+      document.write("<table border='1' cellpadding='5'>");
+      document.write("<tr><th>Apuesta</th><th>Números (1 - 49)</th></tr>");
+
+      for (let i = 0; i < listaApuestas.length; i++) {
+        document.write("<tr><td>" + (i + 1) + "</td><td>" + listaApuestas[i] + "</td></tr>");
+      }
+
+      document.write("</table>");
+    }
+
+    function generarApuestas() {
+      let numerosApuestas = new Array();
+
+      for (let j = 0; j < 50; j++) {
+        let combinacion = new Array();
+
+        while (combinacion.length < 6) {
+          let numeroRand = Math.floor(Math.random() * 49) + 1;
+          if (!combinacion.includes(numeroRand)) {
+            combinacion.push(numeroRand);
+          }
+        }
+
+        combinacion.sort(function(a, b) {
+          return a - b;
+        });
+
+        numerosApuestas.push(combinacion.join(" - "));
+      }
+
+      pintarTabla(numerosApuestas);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>09 · Lotería Primitiva con Set (JS EXTERNO)</title>
+  <style>
+    body { font-family: "Segoe UI", Arial, sans-serif; background: #f3f5f9; color: #222; margin: 0; padding: 20px; }
+    h1 { font-size: 22px; margin: 0 0 12px; color: #1f3a5f; }
+    .enunciado { background: #fff8e1; border-left: 6px solid #f0a500; padding: 8px 18px; margin-bottom: 18px;
+                 font-size: 14px; line-height: 1.45; max-width: 900px; }
+    .enunciado code { background: #f1e6c3; padding: 0 4px; border-radius: 3px; }
+    .caja { background: #fff; border: 1px solid #cfd6e0; border-radius: 8px; padding: 16px; max-width: 720px;
+            margin-bottom: 14px; }
+    .fila { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+    .fila .caja { flex: 1; min-width: 300px; }
+    .centro { text-align: center; }
+    label { display: inline-block; min-width: 130px; font-weight: bold; }
+    input[type=text], select { padding: 4px; }
+    input[type=button], input[type=reset] { padding: 6px 14px; margin: 4px 2px; cursor: pointer; }
+    textarea { width: 100%; box-sizing: border-box; font-family: Consolas, monospace; font-size: 13px; tab-size: 8; }
+    .marco { width: 100px; height: 100px; border: 2px solid #333; margin-bottom: 8px; }
+    .lista { width: 100%; }
+    .reloj { font-family: Consolas, monospace; font-size: 22px; text-align: center; }
+    /* calculadora */
+    .calc { background: #2d3436; padding: 16px; border-radius: 12px; width: 280px; }
+    .calc p { color: #fff; margin: 10px 0 4px; }
+    #pantalla { width: 100%; box-sizing: border-box; font-size: 28px; text-align: right; padding: 8px; margin-bottom: 10px; }
+    .teclas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+    .teclas input { font-size: 20px; padding: 12px 0; margin: 0; border: none; border-radius: 6px; }
+    .teclas .op { background: #f39c12; color: #fff; }
+    .teclas .igual { background: #27ae60; color: #fff; }
+    .teclas .borrar { background: #c0392b; color: #fff; grid-column: span 2; }
+  </style>
+</head>
+<body>
+  <h1>09 · Lotería Primitiva con Set (JS EXTERNO)</h1>
+  <div class="enunciado">
+    <b>Nivel:</b> Medio
+
+<p><b>Este ejercicio se programa en el archivo <code>primitiva.js</code></b>. Vincúlalo al HTML con <code>&lt;script src="primitiva.js"&gt;&lt;/script&gt;</code> justo antes de <code>&lt;/body&gt;</code> (si lo pones en el head, los <code>getElementById</code> que estén fuera de funciones devolverán null).</p>
+<ol>
+<li><b>generarCombinacion()</b>: devuelve un array con 6 números del 1 al 49 <b>sin repetir</b> (usa un <b>Set</b> y un <code>while</code> hasta que tenga 6) y <b>ordenado de menor a mayor</b> (ojo: <code>sort()</code> sin función ordena como texto).</li>
+<li><b>generar()</b>: lee cuántas combinaciones quiere (entero de 1 a 50, si no, avisa) y las muestra en el textarea: <code>Combinación 01:  3 - 12 - 18 - 25 - 33 - 47</code> (número con dos cifras).</li>
+<li><b>comprobar()</b>: el usuario escribe su boleto separado por comas (<code>3,12,18,25,33,47</code>). Valida que sean exactamente 6, números del 1 al 49 y sin repetidos (pista: mete en un Set y mira su <code>size</code>). Genera un sorteo con <code>generarCombinacion()</code> y muestra el sorteo, tu boleto ordenado, los números acertados y el premio.</li>
+<li>Los premios se guardan en un <b>Map</b>: 6 → "1ª categoría", 5 → "2ª categoría", 4 → "3ª categoría", 3 → "4ª categoría". Con otro número de aciertos: "Sin premio".</li>
+</ol>
+
+  </div>
+
+<div class="caja">
+  <h3>Generador de combinaciones</h3>
+  Número de combinaciones (1-50): <input type="text" id="numComb" size="4" value="5">
+  <input type="button" value="Generar"><br><br>
+  <textarea id="combinaciones" rows="10"></textarea>
+  <h3>Comprueba tu boleto</h3>
+  Tu boleto: <input type="text" id="boleto" size="25" placeholder="3,12,18,25,33,47">
+  <input type="button" value="Sortear y comprobar"><br><br>
+  <textarea id="resultado" rows="5"></textarea>
+</div>
+
+  <!-- Vincula aquí tu archivo .js con <script src=...></script> -->
+</body>
+</html>

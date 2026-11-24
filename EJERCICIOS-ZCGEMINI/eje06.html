@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>R6 - Strings y charAt</title>
+</head>
+<body>
+  <label for="textoR6">Escribe una palabra o frase:</label>
+  <!-- AQUÍ PUEDES PONER onchange -->
+  <input type="text" id="textoR6" onchange="analizarFrase()">
+
+  <!-- AQUÍ VA EL EVENTO onclick -->
+  <button type="button" id="btnAnalizarTexto">Analizar con charAt</button>
+
+  <div id="salidaR6"></div>
+
+  <script>
+    // Usa .trim(), .length, .charAt(), .toUpperCase(), .toLowerCase() y bucle for
+    // TU CÓDIGO JS AQUÍ
+
+    function analizarFrase(){
+        let fraseInput = document.getElementsByTagName("input")[0].value.trim().toLowerCase();
+        document.getElementById("salidaR6").textContent = "";
+        if (fraseInput== ""){
+            document.getElementById("salidaR6").textContent = "CAMPO VACIO";
+        }else{
+            document.getElementById("salidaR6").textContent = "";
+            let fraseSinEspacios = fraseInput.replaceAll(" ","");
+            document.getElementById("salidaR6").textContent = fraseSinEspacios;
+            let longitud = fraseSinEspacios.length;
+            let primerChar = fraseSinEspacios.charAt(0);
+            let ultimoChar = fraseSinEspacios.charAt(fraseSinEspacios.length-1);
+            document.getElementById("salidaR6").textContent = "Longitud: "+longitud;
+            for (let i=0;i<fraseSinEspacios.length;i++){
+                document.getElementById("salidaR6").textContent +="Posicion: "+ i + " Letra: "+ fraseSinEspacios[i] +" \n ";
+            }
+
+        }
+    }
+  </script>
+</body>
+</html>

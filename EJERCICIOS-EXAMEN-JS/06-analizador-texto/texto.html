@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06 · Analizador de texto (String a fondo)</title>
+  <style>
+    body { font-family: "Segoe UI", Arial, sans-serif; background: #f3f5f9; color: #222; margin: 0; padding: 20px; }
+    h1 { font-size: 22px; margin: 0 0 12px; color: #1f3a5f; }
+    .enunciado { background: #fff8e1; border-left: 6px solid #f0a500; padding: 8px 18px; margin-bottom: 18px;
+                 font-size: 14px; line-height: 1.45; max-width: 900px; }
+    .enunciado code { background: #f1e6c3; padding: 0 4px; border-radius: 3px; }
+    .caja { background: #fff; border: 1px solid #cfd6e0; border-radius: 8px; padding: 16px; max-width: 720px;
+            margin-bottom: 14px; }
+    .fila { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+    .fila .caja { flex: 1; min-width: 300px; }
+    .centro { text-align: center; }
+    label { display: inline-block; min-width: 130px; font-weight: bold; }
+    input[type=text], select { padding: 4px; }
+    input[type=button], input[type=reset] { padding: 6px 14px; margin: 4px 2px; cursor: pointer; }
+    textarea { width: 100%; box-sizing: border-box; font-family: Consolas, monospace; font-size: 13px; tab-size: 8; }
+    .marco { width: 100px; height: 100px; border: 2px solid #333; margin-bottom: 8px; }
+    .lista { width: 100%; }
+    .reloj { font-family: Consolas, monospace; font-size: 22px; text-align: center; }
+    /* calculadora */
+    .calc { background: #2d3436; padding: 16px; border-radius: 12px; width: 280px; }
+    .calc p { color: #fff; margin: 10px 0 4px; }
+    #pantalla { width: 100%; box-sizing: border-box; font-size: 28px; text-align: right; padding: 8px; margin-bottom: 10px; }
+    .teclas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+    .teclas input { font-size: 20px; padding: 12px 0; margin: 0; border: none; border-radius: 6px; }
+    .teclas .op { background: #f39c12; color: #fff; }
+    .teclas .igual { background: #27ae60; color: #fff; }
+    .teclas .borrar { background: #c0392b; color: #fff; grid-column: span 2; }
+  </style>
+</head>
+<body>
+  <h1>06 · Analizador de texto (String a fondo)</h1>
+  <div class="enunciado">
+    <b>Nivel:</b> Medio-Alto
+
+<p>Una sola función <b>analizar()</b> que se ejecuta al <b>cambiar</b> el select de operación y también con el botón <i>Aplicar</i>. Con un <code>switch</code> según el value elegido, escribe el resultado en el textarea de salida:</p>
+<ul>
+<li><b>contar</b>: nº de caracteres, caracteres sin espacios, nº de palabras (cuidado con los espacios dobles), vocales (con y sin tilde) y dígitos.</li>
+<li><b>mayus</b> / <b>minus</b>: todo en mayúsculas / minúsculas.</li>
+<li><b>capitalizar</b>: primera letra de cada palabra en mayúscula y el resto en minúscula.</li>
+<li><b>invertir</b>: el texto al revés (con <code>split</code>, <code>reverse</code> y <code>join</code>).</li>
+<li><b>palindromo</b>: indica si es palíndromo ignorando mayúsculas, espacios, signos de puntuación y tildes. Prueba con "Dábale arroz a la zorra el abad".</li>
+<li><b>cesar</b>: cifra desplazando el código Unicode de cada carácter el valor de la caja <i>clave</i> (<code>charCodeAt</code> y <code>String.fromCharCode</code>). Si la clave no es un número entero, avisa. Con una clave negativa se descifra.</li>
+<li><b>reemplazar</b>: sustituye todas las apariciones de <i>buscar</i> por <i>reemplazar por</i> e indica cuántas había.</li>
+</ul>
+<p>Si el texto de entrada está vacío, avisa. Si se elige la primera opción del select, vacía la salida.</p>
+
+  </div>
+
+<div class="caja">
+  <label>Texto de entrada</label><br>
+  <textarea id="entrada" rows="4">Dábale arroz a la zorra el abad</textarea><br><br>
+  <label>Operación</label>
+  <select id="operacion">
+    <option value="">-- Elige operación --</option>
+    <option value="contar">Contar</option>
+    <option value="mayus">MAYÚSCULAS</option>
+    <option value="minus">minúsculas</option>
+    <option value="capitalizar">Capitalizar Palabras</option>
+    <option value="invertir">Invertir</option>
+    <option value="palindromo">¿Es palíndromo?</option>
+    <option value="cesar">Cifrado César</option>
+    <option value="reemplazar">Buscar y reemplazar</option>
+  </select>
+  <input type="button" value="Aplicar"><br><br>
+  <label>Clave (César)</label><input type="text" id="clave" size="4" value="3"><br><br>
+  <label>Buscar</label><input type="text" id="buscar" size="12">
+  &nbsp; Reemplazar por: <input type="text" id="reemplazo" size="12"><br><br>
+  <label>Resultado</label><br>
+  <textarea id="salida" rows="7" readonly></textarea>
+</div>
+
+  <script>
+        // Escribe aquí tus funciones
+
+  </script>
+</body>
+</html>

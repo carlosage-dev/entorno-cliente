@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01 · ¿Es un número? ¿Par o impar?</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f3f5f9;
+      color: #222;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin: 0 0 12px;
+      color: #1f3a5f;
+    }
+
+    .enunciado {
+      background: #fff8e1;
+      border-left: 6px solid #f0a500;
+      padding: 8px 18px;
+      margin-bottom: 18px;
+      font-size: 14px;
+      line-height: 1.45;
+      max-width: 860px;
+    }
+
+    .enunciado code {
+      background: #f1e6c3;
+      padding: 0 4px;
+      border-radius: 3px;
+    }
+
+    .caja {
+      background: #fff;
+      border: 1px solid #cfd6e0;
+      border-radius: 8px;
+      padding: 16px;
+      max-width: 620px;
+    }
+
+    .centro {
+      text-align: center;
+    }
+
+    label {
+      display: inline-block;
+      min-width: 150px;
+      font-weight: bold;
+    }
+
+    input[type=text],
+    select {
+      padding: 4px;
+    }
+
+    input[type=button],
+    input[type=reset] {
+      padding: 6px 14px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+    textarea {
+      width: 100%;
+      box-sizing: border-box;
+      font-family: Consolas, monospace;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>01 · ¿Es un número? ¿Par o impar?</h1>
+  <div class="enunciado">
+    <b>Nivel:</b> Muy fácil (como el ejercicio 1 de la batería 1)
+
+    <ol>
+      <li>Al pulsar el botón, la función <b>comprobar()</b> pide un número con <code>prompt</code>.</li>
+      <li>Si el usuario pulsa Cancelar, muestra con <code>alert</code>: "Has cancelado".</li>
+      <li>Si lo escrito no es un número (<code>isNaN</code>), muestra "No es un número".</li>
+      <li>Si es un número, muestra si es <b>par</b> o <b>impar</b> (usa el resto <code>%</code>).</li>
+    </ol>
+
+  </div>
+
+  <div class="caja centro">
+    <p>Pulsa el botón y escribe un número.</p>
+    <input type="button" value="Comprobar número" onclick="comprobar()">
+  </div>
+
+  <script>
+    // Escribe aquí tus funciones
+    function comprobar(){
+      let entrada = prompt("Escribe un numero");
+
+      if (entrada == ""){
+        alert("Campo vacio");
+      }else{
+        let numero = parseInt(entrada);
+
+        if (isNaN(numero)){
+          alert("No es un numero");
+        }else if (numero >0){
+          if (numero % 2==0){
+            alert("El numero"+numero+" es PAR")
+          }else{
+            alert("El numero"+numero+" es IMPAR")
+          }
+        }else {
+          alert("No se puede dividir por 0 o inferior");
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02 · Ficha de socio del gimnasio (estilo Sr./Sra.)</title>
+  <style>
+    body { font-family: "Segoe UI", Arial, sans-serif; background: #f3f5f9; color: #222; margin: 0; padding: 20px; }
+    h1 { font-size: 22px; margin: 0 0 12px; color: #1f3a5f; }
+    .enunciado { background: #fff8e1; border-left: 6px solid #f0a500; padding: 8px 18px; margin-bottom: 18px;
+                 font-size: 14px; line-height: 1.45; max-width: 900px; }
+    .enunciado code { background: #f1e6c3; padding: 0 4px; border-radius: 3px; }
+    .caja { background: #fff; border: 1px solid #cfd6e0; border-radius: 8px; padding: 16px; max-width: 720px;
+            margin-bottom: 14px; }
+    .fila { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+    .fila .caja { flex: 1; min-width: 300px; }
+    .centro { text-align: center; }
+    label { display: inline-block; min-width: 130px; font-weight: bold; }
+    input[type=text], select { padding: 4px; }
+    input[type=button], input[type=reset] { padding: 6px 14px; margin: 4px 2px; cursor: pointer; }
+    textarea { width: 100%; box-sizing: border-box; font-family: Consolas, monospace; font-size: 13px; tab-size: 8; }
+    .marco { width: 100px; height: 100px; border: 2px solid #333; margin-bottom: 8px; }
+    .lista { width: 100%; }
+    .reloj { font-family: Consolas, monospace; font-size: 22px; text-align: center; }
+    /* calculadora */
+    .calc { background: #2d3436; padding: 16px; border-radius: 12px; width: 280px; }
+    .calc p { color: #fff; margin: 10px 0 4px; }
+    #pantalla { width: 100%; box-sizing: border-box; font-size: 28px; text-align: right; padding: 8px; margin-bottom: 10px; }
+    .teclas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+    .teclas input { font-size: 20px; padding: 12px 0; margin: 0; border: none; border-radius: 6px; }
+    .teclas .op { background: #f39c12; color: #fff; }
+    .teclas .igual { background: #27ae60; color: #fff; }
+    .teclas .borrar { background: #c0392b; color: #fff; grid-column: span 2; }
+  </style>
+</head>
+<body>
+  <h1>02 · Ficha de socio del gimnasio (estilo Sr./Sra.)</h1>
+  <div class="enunciado">
+    <b>Nivel:</b> Medio
+
+<p>Variante del ejercicio Sr./Sra. del profesor.</p>
+<ol>
+<li><b>cambiarFoto()</b>: en cuanto el usuario marque Sr. o Sra., cambia la imagen a <code>img/sr.svg</code> o <code>img/sra.svg</code>.</li>
+<li><b>mostrarCuota()</b>: al <b>cambiar</b> la ciudad, escribe en el <code>span</code> <i>cuota</i>: <code>Cuota base en Madrid: 35 €</code> (usa el texto visible de la opción y su value). Si vuelve a "Elija ciudad", pon <code>Cuota base: -</code>.</li>
+<li><b>informe()</b> (botón Enviar). Comprueba y avisa con <code>alert</code> si:
+  <ul><li>no hay tratamiento marcado; nombre o apellidos vacíos; no se ha elegido ciudad;</li>
+  <li>el <b>DNI</b> no es válido: 9 caracteres, los 8 primeros números y la letra correcta. La letra es
+  <code>"TRWAGMYFPDXBNJZSQVHLCKE"</code> en la posición <code>número % 23</code>. Haz una función <b>dniValido(dni)</b> que devuelva true o false.</li></ul>
+  Si todo está bien, calcula la cuota: base de la ciudad más cada actividad marcada (Piscina +10, Pádel +15, Spinning +8, Yoga +6; usa <code>switch</code>). Con 3 o más actividades se aplica un <b>10 % de descuento</b> al total.
+  Muestra en el textarea: <code>Sr. Nombre Apellidos</code>, DNI en mayúsculas, ciudad, actividades (o "Ninguna"), cuota con 2 decimales y la fecha de alta de hoy (<code>toLocaleDateString()</code>).</li>
+<li><b>cancelar()</b>: resetea el formulario con su método <code>reset()</code>, vacía el textarea, deja la foto <code>img/nadie.svg</code> y el span como al principio.</li>
+</ol>
+
+  </div>
+
+<div class="fila">
+ <div class="caja">
+  <form name="formSocio">
+   <label>Tratamiento</label>
+   <input type="radio" name="tratamiento" value="Sr."> Sr.
+   <input type="radio" name="tratamiento" value="Sra."> Sra.<br><br>
+   <label>Nombre</label><input type="text" id="nombre"><br><br>
+   <label>Apellidos</label><input type="text" id="apellidos"><br><br>
+   <label>DNI</label><input type="text" id="dni" maxlength="9" placeholder="8 números + letra"><br><br>
+   <label>Ciudad</label>
+   <select id="ciudad">
+     <option value="0">Elija ciudad</option>
+     <option value="35">Madrid</option>
+     <option value="32">Barcelona</option>
+     <option value="28">Valencia</option>
+     <option value="25">Sevilla</option>
+   </select>
+   <span id="cuota">Cuota base: -</span><br><br>
+   <label>Actividades</label>
+   <input type="checkbox" name="actividad" value="Piscina"> Piscina
+   <input type="checkbox" name="actividad" value="Pádel"> Pádel
+   <input type="checkbox" name="actividad" value="Spinning"> Spinning
+   <input type="checkbox" name="actividad" value="Yoga"> Yoga<br><br>
+   <input type="button" value="Enviar">
+   <input type="button" value="Cancelar">
+  </form>
+ </div>
+ <div class="caja">
+  <div class="marco"><img id="rostro" src="img/nadie.svg" alt="?" width="100" height="100"></div>
+  <h4>Datos introducidos:</h4>
+  <textarea id="datosfinales" rows="11" cols="38"></textarea>
+ </div>
+</div>
+
+  <script>
+        // Escribe aquí tus funciones
+
+  </script>
+</body>
+</html>

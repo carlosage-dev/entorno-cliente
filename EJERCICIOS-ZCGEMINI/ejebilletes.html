@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desglose en unidades con divisiones y resto</title>
+</head>
+
+<body>
+    <h2>Desglose de cantidad en unidades (500 a 1)</h2>
+    <button type="button" id="btnDesglose" onclick="pedirYDesglosar()">Introducir número</button>
+
+    <script>
+        function pedirYDesglosar() {
+            let entrada = prompt("Introduce un número entero positivo (ej: 5568):");
+
+            if (entrada === null) {
+                alert("Operación cancelada.");
+                return;
+            }
+
+            let cantidad = parseInt(entrada.trim(), 10);
+
+            if (isNaN(cantidad) || cantidad <= 0) {
+                alert("Debes introducir un número entero mayor que 0.");
+                return;
+            }
+
+            pintarDesglose(cantidad);
+        }
+
+        function pintarDesglose(total) {
+            const unidades = [500, 200, 100, 50, 20, 10, 5, 2, 1];
+            let restante = total;
+
+            document.write("<h3>Número introducido: " + total + "</h3>");
+            document.write("<table border='1' cellpadding='6'>");
+            document.write("<tr><th>Unidad</th><th>Cantidad</th></tr>");
+
+            for (let unidad of unidades) {
+                let uds = Math.floor(restante / unidad);
+                restante = restante % unidad;
+
+                let textoUds = "";
+                if (uds === 1) {
+                    textoUds = "1ud";
+                } else {
+                    textoUds = uds + "uds";
+                }
+
+                document.write("<tr><td>" + unidad + "</td><td>" + textoUds + "</td></tr>");
+            }
+
+            document.write("</table>");
+        }
+    </script>
+</body>
+
+</html>

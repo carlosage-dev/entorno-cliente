@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>M2 - Array con seleccionadas</title>
+</head>
+<body>
+  <label for="diasTurno">Días disponibles:</label><br>
+  <select id="diasTurno" multiple size="5">
+    <option value="Lunes">Lunes</option>
+    <option value="Martes">Martes</option>
+    <option value="Miércoles">Miércoles</option>
+    <option value="Jueves">Jueves</option>
+    <option value="Viernes">Viernes</option>
+  </select><br><br>
+
+  <!-- PON AQUÍ EL EVENTO onclick -->
+  <button type="button" id="btnDiasM2" onclick="mostrar()">Mostrar días</button>
+  <div id="salidaM2"></div>
+
+  <script>
+    // Guarda los valores marcados en un array y muéstralos con innerHTML
+    // TU CÓDIGO JS AQUÍ
+    function mostrar(){
+        let sel = document.getElementById("diasTurno");
+        let salida = document.getElementById("salidaM2");
+        let diasSel = new Array;
+        let texto="";
+        for (let i = 0; i<sel.options.length;i++){
+            if (sel.options[i].selected){
+                diasSel.push(sel.options[i].value);
+            }
+        }
+
+        if (diasSel.length==0){
+            salida.innerHTML = "No has seleccionado nada";
+            return;
+        }
+        texto = diasSel.join(" - ");
+
+        salida.innerHTML = "Dias de la semana: "+ texto;
+    }
+  </script>
+</body>
+</html>

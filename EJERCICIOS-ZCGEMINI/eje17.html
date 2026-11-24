@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>M3 - Marcar y desmarcar options</title>
+</head>
+<body>
+  <label for="herramientasM3">Herramientas:</label><br>
+  <select id="herramientasM3" multiple size="4">
+    <option value="Git">Git</option>
+    <option value="VS Code">VS Code</option>
+    <option value="Docker">Docker</option>
+    <option value="Linux">Linux</option>
+  </select><br><br>
+
+  <button type="button" id="btnMarcarTodo" onclick="cambiarSeleccion(true)">Seleccionar todo</button>
+  <button type="button" id="btnLimpiarTodo" onclick="cambiarSeleccion(false)">Quitar selección</button>
+
+  <script>
+    function cambiarSeleccion(estado) {
+      const sel = document.getElementById("herramientasM3");
+
+      for (let i = 0; i < sel.options.length; i++) {
+        sel.options[i].selected = estado;
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>09 · Media de números con un array (JS EXTERNO)</title>
+  <style>
+    body { font-family: "Segoe UI", Arial, sans-serif; background: #f3f5f9; color: #222; margin: 0; padding: 20px; }
+    h1 { font-size: 22px; margin: 0 0 12px; color: #1f3a5f; }
+    .enunciado { background: #fff8e1; border-left: 6px solid #f0a500; padding: 8px 18px; margin-bottom: 18px;
+                 font-size: 14px; line-height: 1.45; max-width: 860px; }
+    .enunciado code { background: #f1e6c3; padding: 0 4px; border-radius: 3px; }
+    .caja { background: #fff; border: 1px solid #cfd6e0; border-radius: 8px; padding: 16px; max-width: 620px; }
+    .centro { text-align: center; }
+    label { display: inline-block; min-width: 150px; font-weight: bold; }
+    input[type=text], select { padding: 4px; }
+    input[type=button], input[type=reset] { padding: 6px 14px; margin: 4px 2px; cursor: pointer; }
+    textarea { width: 100%; box-sizing: border-box; font-family: Consolas, monospace; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <h1>09 · Media de números con un array (JS EXTERNO)</h1>
+  <div class="enunciado">
+    <b>Nivel:</b> Fácil-Medio (como el ejercicio 1 de la batería UT3)
+
+<p><b>Se programa en <code>notas.js</code></b> (vincúlalo con <code>src</code> antes de <code>&lt;/body&gt;</code>). Las notas se guardan en un <b>array global</b>.</p>
+<ol>
+<li><b>anadir()</b>: lee la nota; si no es un número entre 0 y 10 avisa. Si es válida, la mete en el array con <code>push</code>, vacía la caja, le devuelve el foco y muestra en el textarea todas las notas separadas por " - " (<code>join</code>).</li>
+<li><b>calcular()</b>: recorre el array con un <code>for</code> y muestra en las cajas la <b>media</b> (con 2 decimales), la nota <b>más alta</b> y la <b>más baja</b> y cuántos <b>aprobados</b> hay. Si el array está vacío, avisa.</li>
+<li><b>borrarUltima()</b>: quita la última nota con <code>pop</code> y actualiza el textarea.</li>
+</ol>
+
+  </div>
+
+<div class="caja">
+  <label>Nota</label><input type="text" id="nota" size="5">
+  <input type="button" value="Añadir">
+  <input type="button" value="Borrar última"><br><br>
+  <textarea id="lista" rows="3"></textarea><br><br>
+  <input type="button" value="Calcular"><br><br>
+  <label>Media</label><input type="text" id="media" size="6" readonly><br>
+  <label>Más alta</label><input type="text" id="alta" size="6" readonly><br>
+  <label>Más baja</label><input type="text" id="baja" size="6" readonly><br>
+  <label>Aprobados</label><input type="text" id="aprobados" size="6" readonly>
+</div>
+
+  <!-- Vincula aquí tu archivo .js con <script src=...></script> -->
+</body>
+</html>

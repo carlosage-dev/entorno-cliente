@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 18 - Fechas y milisegundos</title>
+</head>
+
+<body>
+    <label for="fechaTexto">Fecha de nacimiento (AAAA-MM-DD):</label>
+    <!-- AQUÍ PUEDES PONER onchange O USAR EL BOTÓN CON onclick -->
+    <input type="text" id="fechaTexto" placeholder="2005-03-20">
+
+    <!-- AQUÍ VA EL EVENTO onclick -->
+    <button type="button" id="btnCalcularFecha" onclick="calcular()">Calcular</button>
+
+    <p id="resFecha18"></p>
+
+    <script>
+        // 1. Crea fechaActual = new Date()
+        // 2. Crea fechaNac = new Date(valorInput)
+        // 3. Calcula diferencia en milisegundos: fechaActual.getTime() - fechaNac.getTime()
+        // 4. Pasa milisegundos a días: / (1000 * 60 * 60 * 24) y usa Math.floor()
+        // 5. Prueba también new Date(0) o new Date(1000000000000) y new Date(2026, 10, 22)
+        // TU CÓDIGO JS AQUÍ
+        function calcular() {
+            let fechaActual = new Date();
+            let fechaNacInput = document.getElementById("fechaTexto").value;
+            let fechaNac;
+
+            let fechaInventada = new Date(2018, 0, 12);
+            let fechaInventada2 = new Date(1000000000000);
+
+            let fechaInv1Formateada = fechaInventada.toLocaleDateString("es-ES"); // ej: 12/1/2018
+            let fechaInv2Formateada =
+                fechaInventada2.getDate() + "/" +
+                (fechaInventada2.getMonth() + 1) + "/" +
+                fechaInventada2.getFullYear();
+
+            if (fechaNacInput === "") {
+                document.getElementById("resFecha18").textContent = "ERROR, NO HAY FECHA INTRODUCIDA";
+                return;
+            } else {
+                fechaNac = new Date(fechaNacInput);
+
+                if (isNaN(fechaNac.getTime())) {
+                    document.getElementById("resFecha18").textContent = "ERROR, NO ES UNA FECHA VALIDA";
+                } else {
+                    let diferenciaMili = fechaActual.getTime() - fechaNac.getTime();
+                    if (diferenciaMili <= 0) {
+                        document.getElementById("resFecha18").textContent = "ERROR, TU QUE, VIENES DEL FUTURO?";
+
+                    } else {
+                        document.getElementById("resFecha18").textContent = "";
+
+                        document.getElementById("resFecha18").textContent += "Diferencia en milisegundos " + diferenciaMili;
+                        let dias = Math.floor(diferenciaMili / 86400000);
+                        document.getElementById("resFecha18").textContent += "Dias transcurridos " + dias;
+                        let edad = Math.floor(dias / 365.25);
+                        document.getElementById("resFecha18").textContent += "Edad: " + edad;
+                        document.getElementById("resFecha18").textContent += "Fecha Inventada " + fechaInv1Formateada + "LA OTRA FECHA : " + fechaInv2Formateada;
+
+                    }
+                }
+
+            }
+
+
+
+        }
+    </script>
+</body>
+
+</html>

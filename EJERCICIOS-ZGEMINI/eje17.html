@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 17 - Tabla de multiplicar con document.write</title>
+</head>
+<body>
+  <label for="numTabla">Elige un número:</label>
+  <!-- AQUÍ PUEDES USAR onchange O EL BOTÓN CON onclick -->
+  <input type="number" id="numTabla" onchange="tablaMultiplicar()">
+
+  <!-- AQUÍ VA EL EVENTO onclick -->
+  <button type="button" id="btnMultiplicar" >Pintar tabla</button>
+
+  <script>
+    // Valida el número y llama a una función con parámetro que use document.write()
+    // TU CÓDIGO JS AQUÍ
+
+    function tablaMultiplicar(){
+        const numero =  document.getElementsByTagName("input")[0].value;
+        if (numero <=0){
+            document.write("Mi hermano, elige un numero positivo");
+        }else{
+            document.write("<table border= '1'><tr><th>Operacion</th><th>Resultado</th></tr>");
+            for (let i =0;i<=10;i++){
+                let resu = 0;
+                resu = numero*i;
+                document.write("<tr><td>"+numero+ " *  " + i + "</td><td>"+resu+"</td></tr>");
+
+            }
+            document.write("</table>");
+        }
+    }
+  </script>
+</body>
+</html>

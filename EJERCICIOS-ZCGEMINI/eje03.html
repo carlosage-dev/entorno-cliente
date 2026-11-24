@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>R3 - Comparar fechas</title>
+</head>
+
+<body>
+    <label for="fechaComp">Elige una fecha:</label>
+    <!-- AQUÍ PUEDES PONER onchange -->
+    <input type="text" id="fechaComp">
+
+    <!-- AQUÍ VA EL EVENTO onclick -->
+    <button type="button" id="btnComparar" onclick="comparar()">Comparar con fecha límite</button>
+
+    <p id="salidaR3"></p>
+
+    <script>
+        // Fija una fecha límite (recuerda que el mes en new Date(a, m, d) empieza en 0)
+        // Compara .getTime() y muestra los días de diferencia
+        // TU CÓDIGO JS AQUÍ
+        function comparar() {
+            let fechaFijada = new Date(2026, 10, 30);
+            let fijadaMili = fechaFijada.getTime();
+            let fechaIntText = document.getElementById("fechaComp").value;
+
+            if (fechaIntText == "") {
+                document.getElementById("salidaR3").textContent = "CAMPO VACIO";
+            } else {
+                let fechaInt = new Date(fechaIntText);
+                let intMili = fechaInt.getTime();
+                if (isNaN(intMili)) {
+                    document.getElementById("salidaR3").textContent = "FORMATO NO VÁLIDO";
+                } else if (intMili > fijadaMili) {
+                    document.getElementById("salidaR3").textContent = "NO se puede poner una fecha mayor a la establecida";
+                } else {
+
+                    let diferencia = fijadaMili - intMili;
+
+                    let dias = Math.round(diferencia / 86400000);
+                    document.getElementById("salidaR3").textContent = "QUEDAN " + dias + " dias";
+
+                }
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>F4 - Select multiple y .options</title>
+</head>
+<body>
+  <label for="lenguajesMulti">Selecciona uno o varios (Ctrl/Cmd + clic):</label><br>
+  <select id="lenguajesMulti" multiple size="4">
+    <option value="JavaScript">JavaScript</option>
+    <option value="TypeScript">TypeScript</option>
+    <option value="HTML/CSS">HTML/CSS</option>
+    <option value="SQL">SQL</option>
+  </select><br><br>
+
+  <button type="button" id="btnMulti" onclick="recogerSeleccionados()">Recoger seleccionados</button>
+  <div id="salidaMulti"></div>
+
+  <script>
+    function recogerSeleccionados() {
+      const sel = document.getElementById("lenguajesMulti");
+      const salida = document.getElementById("salidaMulti");
+      let elegidos = [];
+
+      for (let i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].selected) {
+          elegidos.push(sel.options[i].value);
+        }
+      }
+
+      if (elegidos.length === 0) {
+        salida.innerHTML = "<p>No has seleccionado ninguna opción.</p>";
+        return;
+      }
+
+      let html = "<p>Seleccionados (<strong>" + elegidos.length + "</strong>): " + elegidos.join(", ") + "</p>";
+      html += "<ul>";
+      for (let item of elegidos) {
+        html += "<li>" + item + "</li>";
+      }
+      html += "</ul>";
+
+      salida.innerHTML = html;
+    }
+  </script>
+</body>
+</html>

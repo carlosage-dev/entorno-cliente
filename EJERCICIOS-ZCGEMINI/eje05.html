@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>R5 - Métodos rápidos de Array</title>
+</head>
+<body>
+  <label for="itemR5">Lenguaje / herramienta:</label>
+  <input type="text" id="itemR5" placeholder="Ej: js">
+
+  <!-- AQUÍ VAN LOS EVENTOS onclick -->
+  <button type="button" id="btnQuitarR5" onclick="eliminar()">Buscar y quitar (indexOf + splice)</button>
+  <button type="button" id="btnExtraR5" onclick="unir()">Unir extra (concat + join)</button>
+
+  <p id="salidaR5"></p>
+
+  <script>
+    let modulos = ["dwes", "dwec", "daw", "diw"];
+    let clases = ["1DAM", "2DAM", "1DAW", "2DAW", "1ASIR", "2ASIR"];
+    // TU CÓDIGO JS AQUÍ
+    function eliminar(){
+        let textoInput = document.getElementById("itemR5").value.trim().toLowerCase();
+        document.getElementById("salidaR5").textContent="";
+        if (textoInput==""){
+            document.getElementById("salidaR5").textContent = "CAMPO VACIO";
+        }else if (!isNaN(textoInput)){
+            document.getElementById("salidaR5").textContent = "No buscamos numeros, nombres";
+        }else{
+            for (let i =0;i<modulos.length;i++){
+                if (modulos[i]===textoInput){
+                    document.getElementById("salidaR5").textContent = "Borrado el elemento "+ modulos[i];
+                    modulos.splice(i,1);
+                    
+                }
+            }  
+        }
+        let listamod= modulos.join(" - ");
+        document.getElementById("salidaR5").textContent+= " Lista actual:  " + listamod;
+    }
+
+    function unir(){
+        document.getElementById("salidaR5").textContent="";
+        let unidos = [...modulos,...clases];
+        let unidos2 = unidos.join(" - ");
+        document.getElementById("salidaR5").textContent+=unidos2;
+
+    }
+  </script>
+</body>
+</html>

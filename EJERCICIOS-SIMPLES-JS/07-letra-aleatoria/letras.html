@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>07 · Letra aleatoria y vocales (charAt, random)</title>
+  <style>
+    body { font-family: "Segoe UI", Arial, sans-serif; background: #f3f5f9; color: #222; margin: 0; padding: 20px; }
+    h1 { font-size: 22px; margin: 0 0 12px; color: #1f3a5f; }
+    .enunciado { background: #fff8e1; border-left: 6px solid #f0a500; padding: 8px 18px; margin-bottom: 18px;
+                 font-size: 14px; line-height: 1.45; max-width: 860px; }
+    .enunciado code { background: #f1e6c3; padding: 0 4px; border-radius: 3px; }
+    .caja { background: #fff; border: 1px solid #cfd6e0; border-radius: 8px; padding: 16px; max-width: 620px; }
+    .centro { text-align: center; }
+    label { display: inline-block; min-width: 150px; font-weight: bold; }
+    input[type=text], select { padding: 4px; }
+    input[type=button], input[type=reset] { padding: 6px 14px; margin: 4px 2px; cursor: pointer; }
+    textarea { width: 100%; box-sizing: border-box; font-family: Consolas, monospace; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <h1>07 · Letra aleatoria y vocales (charAt, random)</h1>
+  <div class="enunciado">
+    <b>Nivel:</b> Fácil (como el ejercicio 2 de la batería UT3)
+
+<ol>
+<li><b>verLetra()</b>: cada vez que se pulsa <i>Ver</i>, muestra en la caja <i>letra</i> un carácter al azar de la frase (con <code>charAt</code> y <code>Math.random</code>). Si la frase está vacía, avisa.</li>
+<li><b>contarVocales()</b>: recorre la frase con un <code>for</code> y cuenta cuántas vocales tiene (pasa la frase a minúsculas antes). Muestra el resultado en la caja <i>vocales</i>.</li>
+<li><b>alReves()</b>: escribe la frase al revés en la caja <i>reves</i> (recorriéndola desde el final con un <code>for</code>).</li>
+</ol>
+
+  </div>
+
+<div class="caja">
+  <label>Frase</label><input type="text" id="frase" size="40" value="Me gusta programar en JavaScript"><br><br>
+  <input type="button" value="Ver">
+  Letra: <input type="text" id="letra" size="3" readonly><br><br>
+  <input type="button" value="Contar vocales">
+  Vocales: <input type="text" id="vocales" size="4" readonly><br><br>
+  <input type="button" value="Al revés">
+  <input type="text" id="reves" size="40" readonly>
+</div>
+
+  <script>
+        // Escribe aquí tus funciones
+
+  </script>
+</body>
+</html>

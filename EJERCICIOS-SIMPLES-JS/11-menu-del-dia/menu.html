@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11 · Menú del día (select, radio y checkbox)</title>
+  <style>
+    body { font-family: "Segoe UI", Arial, sans-serif; background: #f3f5f9; color: #222; margin: 0; padding: 20px; }
+    h1 { font-size: 22px; margin: 0 0 12px; color: #1f3a5f; }
+    .enunciado { background: #fff8e1; border-left: 6px solid #f0a500; padding: 8px 18px; margin-bottom: 18px;
+                 font-size: 14px; line-height: 1.45; max-width: 860px; }
+    .enunciado code { background: #f1e6c3; padding: 0 4px; border-radius: 3px; }
+    .caja { background: #fff; border: 1px solid #cfd6e0; border-radius: 8px; padding: 16px; max-width: 620px; }
+    .centro { text-align: center; }
+    label { display: inline-block; min-width: 150px; font-weight: bold; }
+    input[type=text], select { padding: 4px; }
+    input[type=button], input[type=reset] { padding: 6px 14px; margin: 4px 2px; cursor: pointer; }
+    textarea { width: 100%; box-sizing: border-box; font-family: Consolas, monospace; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <h1>11 · Menú del día (select, radio y checkbox)</h1>
+  <div class="enunciado">
+    <b>Nivel:</b> Fácil-Medio (como el ejemplo del menú y la encuesta)
+
+<p>Al pulsar <i>Ver pedido</i>, la función <b>verPedido()</b> escribe en el textarea:</p>
+<ol>
+<li>El <b>primer plato</b> elegido en el select. Si sigue en "Elige...", avisa con <code>alert</code> y no sigas.</li>
+<li>El <b>postre</b> marcado en los radio.</li>
+<li>Los <b>extras</b> marcados en los checkbox (pan, bebida, café), o "Sin extras".</li>
+<li>El <b>precio total</b>: el menú cuesta 12 € y cada extra suma 1,50 €.</li>
+</ol>
+
+  </div>
+
+<div class="caja">
+ <form name="menu">
+  <label>Primer plato</label>
+  <select id="primero">
+    <option value="">Elige primer plato</option>
+    <option value="Lentejas">Lentejas</option>
+    <option value="Ensalada">Ensalada</option>
+    <option value="Macarrones">Macarrones</option>
+  </select><br><br>
+  <label>Postre</label>
+  <input type="radio" name="postre" value="Fruta" checked> Fruta
+  <input type="radio" name="postre" value="Flan"> Flan
+  <input type="radio" name="postre" value="Helado"> Helado<br><br>
+  <label>Extras (1,50 €)</label>
+  <input type="checkbox" name="extra" value="Pan"> Pan
+  <input type="checkbox" name="extra" value="Bebida"> Bebida
+  <input type="checkbox" name="extra" value="Café"> Café<br><br>
+  <input type="button" value="Ver pedido">
+  <input type="reset" value="Borrar"><br><br>
+  <textarea id="pedido" rows="5"></textarea>
+ </form>
+</div>
+
+  <script>
+        // Escribe aquí tus funciones
+
+  </script>
+</body>
+</html>

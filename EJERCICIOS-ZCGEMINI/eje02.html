@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>R2 - Mayoría de edad</title>
+</head>
+<body>
+  <label for="nacR2">Fecha de nacimiento:</label>
+  <!-- AQUÍ PUEDES PONER onchange O USAR EL BOTÓN CON onclick -->
+  <input type="text" id="nacR2">
+
+  <!-- AQUÍ VA EL EVENTO onclick -->
+  <button type="button" id="btnMayorEdad" onclick="comprobar()">Comprobar edad</button>
+
+  <p id="salidaR2"></p>
+
+  <script>
+    // Comprueba fecha válida y si tiene 18 años o más
+    // TU CÓDIGO JS AQUÍ
+    function comprobar(){
+        let fechaNacInput = document.getElementById("nacR2").value;
+        let fechaActual = new Date();
+        let miliActual = fechaActual.getTime();
+        if (fechaNacInput ==""){
+            document.getElementById("salidaR2").textContent = "CAMPO VACIO";
+            return;
+        }else{
+            let fechaNac = new Date(fechaNacInput);
+            let fechaMili = fechaNac.getTime();
+            if (isNaN(fechaMili)){
+                document.getElementById("salidaR2").textContent = "Fecha no VÁLIDA";
+                return;
+            }else if (fechaMili>Date.now()){
+                document.getElementById("salidaR2").textContent = "VIENES DEL FUTURO";
+            return;
+            }else if (fechaMili<Date.now()){
+                let diferenciaMili = miliActual - fechaMili;
+                let dias = diferenciaMili / 86400000;
+                let edad = Math.floor(dias/365.25);
+                if (edad >=18){
+                    document.getElementById("salidaR2").textContent = "ERES MAYOR DE EDAD: "+edad+ " años";
+                }else{
+                    document.getElementById("salidaR2").textContent = "ERES MENOR DE EDAD: "+edad+ " años";
+                }
+            }
+        }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03 · Tabla de multiplicar y factorial (bucles)</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f3f5f9;
+      color: #222;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin: 0 0 12px;
+      color: #1f3a5f;
+    }
+
+    .enunciado {
+      background: #fff8e1;
+      border-left: 6px solid #f0a500;
+      padding: 8px 18px;
+      margin-bottom: 18px;
+      font-size: 14px;
+      line-height: 1.45;
+      max-width: 860px;
+    }
+
+    .enunciado code {
+      background: #f1e6c3;
+      padding: 0 4px;
+      border-radius: 3px;
+    }
+
+    .caja {
+      background: #fff;
+      border: 1px solid #cfd6e0;
+      border-radius: 8px;
+      padding: 16px;
+      max-width: 620px;
+    }
+
+    .centro {
+      text-align: center;
+    }
+
+    label {
+      display: inline-block;
+      min-width: 150px;
+      font-weight: bold;
+    }
+
+    input[type=text],
+    select {
+      padding: 4px;
+    }
+
+    input[type=button],
+    input[type=reset] {
+      padding: 6px 14px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+    textarea {
+      width: 100%;
+      box-sizing: border-box;
+      font-family: Consolas, monospace;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>03 · Tabla de multiplicar y factorial (bucles)</h1>
+  <div class="enunciado">
+    <b>Nivel:</b> Fácil (como el factorial)
+
+    <ol>
+      <li><b>tabla()</b>: lee el número de la caja y escribe en el textarea su tabla del 1 al 10 con un
+        <code>for</code>, una línea por operación: <code>7 x 3 = 21</code>.</li>
+      <li><b>factorial()</b>: calcula el factorial del número (5! = 5·4·3·2·1 = 120) con un bucle y lo escribe en el
+        textarea. Si el número es negativo, avisa.</li>
+      <li>En las dos, si la caja no tiene un número, avisa con <code>alert</code>.</li>
+    </ol>
+
+  </div>
+
+  <div class="caja">
+    <label>Número</label><input type="text" id="numero" size="5"><br><br>
+    <input type="button" value="Tabla de multiplicar">
+    <input type="button" value="Factorial"><br><br>
+    <textarea id="salida" rows="11"></textarea>
+  </div>
+
+  <script>
+    // Escribe aquí tus funciones
+
+  </script>
+</body>
+
+</html>

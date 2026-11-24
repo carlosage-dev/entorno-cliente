@@ -1,0 +1,16 @@
+/*SOLO QUEDA PREPARAR EJERCICIOS DE USO DEL switch
+ PINTAR ALGUNA TABLA,
+PRACTICAR EL SELECT CON LOS OPTIONS
+FUNCIONES DE FECHAS CON YEAR,MONTH,DAY
+Y FUNCIONES CON TIEMPOS HOUR, MINUTE, SECONDS
+
+HAY QUE DIFERENCIAR ENTRE TEXTO Y STRING,, POR SI NO VALEN LAS FUNCIONES A APLICAR
+
+• Clonar un array: const copia = [...original];
+• Unir dos arrays: const juntos = [...array1, ...array2]; (mucho más limpio que .concat()).
+• Separar letras de un texto: [..."hola"] -> ["h", "o", "l", "a"].
+
+• splice(posicion, cuantosBorro) -> Solo borra.
+• splice(posicion, 0, nuevoElemento) -> Solo añade (porque le dices que borre 0).
+• splice(posicion, 1, nuevoElemento) -> Reemplaza (borra 1 y mete otro en su lugar).
+*/

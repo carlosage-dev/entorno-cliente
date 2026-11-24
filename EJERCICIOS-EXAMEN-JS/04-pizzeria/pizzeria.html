@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04 · Pedido en la pizzería (select, radio, checkbox, Date)</title>
+  <style>
+    body { font-family: "Segoe UI", Arial, sans-serif; background: #f3f5f9; color: #222; margin: 0; padding: 20px; }
+    h1 { font-size: 22px; margin: 0 0 12px; color: #1f3a5f; }
+    .enunciado { background: #fff8e1; border-left: 6px solid #f0a500; padding: 8px 18px; margin-bottom: 18px;
+                 font-size: 14px; line-height: 1.45; max-width: 900px; }
+    .enunciado code { background: #f1e6c3; padding: 0 4px; border-radius: 3px; }
+    .caja { background: #fff; border: 1px solid #cfd6e0; border-radius: 8px; padding: 16px; max-width: 720px;
+            margin-bottom: 14px; }
+    .fila { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+    .fila .caja { flex: 1; min-width: 300px; }
+    .centro { text-align: center; }
+    label { display: inline-block; min-width: 130px; font-weight: bold; }
+    input[type=text], select { padding: 4px; }
+    input[type=button], input[type=reset] { padding: 6px 14px; margin: 4px 2px; cursor: pointer; }
+    textarea { width: 100%; box-sizing: border-box; font-family: Consolas, monospace; font-size: 13px; tab-size: 8; }
+    .marco { width: 100px; height: 100px; border: 2px solid #333; margin-bottom: 8px; }
+    .lista { width: 100%; }
+    .reloj { font-family: Consolas, monospace; font-size: 22px; text-align: center; }
+    /* calculadora */
+    .calc { background: #2d3436; padding: 16px; border-radius: 12px; width: 280px; }
+    .calc p { color: #fff; margin: 10px 0 4px; }
+    #pantalla { width: 100%; box-sizing: border-box; font-size: 28px; text-align: right; padding: 8px; margin-bottom: 10px; }
+    .teclas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+    .teclas input { font-size: 20px; padding: 12px 0; margin: 0; border: none; border-radius: 6px; }
+    .teclas .op { background: #f39c12; color: #fff; }
+    .teclas .igual { background: #27ae60; color: #fff; }
+    .teclas .borrar { background: #c0392b; color: #fff; grid-column: span 2; }
+  </style>
+</head>
+<body>
+  <h1>04 · Pedido en la pizzería (select, radio, checkbox, Date)</h1>
+  <div class="enunciado">
+    <b>Nivel:</b> Medio-Alto
+
+<ol>
+<li><b>precioBase()</b>: al <b>cambiar</b> el tamaño, escribe en la caja <i>Precio base</i> el value con dos decimales y " €". Si vuelve a "Elige tamaño", vacíala.</li>
+<li><b>calcular()</b> (botón Calcular pedido). Valida y avisa con <code>alert</code> si: no hay tamaño, no hay masa, o la cantidad no es un número entero entre 1 y 20.</li>
+<li>Precio de <b>una</b> pizza = precio del tamaño + 2 € si la masa es "Rellena de queso" + 1,20 € por cada ingrediente extra marcado.</li>
+<li>Subtotal = precio de una pizza × cantidad. Si el <b>código de descuento</b> es <code>DAW10</code> (da igual mayúsculas/minúsculas y espacios) se resta un 10 %. Si han escrito otro código, indica en el ticket "Código no válido".</li>
+<li>Gastos de envío de 2,50 € salvo que el importe (tras descuento) supere 30 €; entonces el envío es gratis. Después, IVA del 10 % sobre todo.</li>
+<li>Muestra en el textarea un <b>ticket tabulado</b>: tamaño (texto visible), masa, ingredientes (o "Ninguno"), cantidad, precio unidad, subtotal, descuento, envío, IVA y TOTAL, todo con 2 decimales.</li>
+<li>Al final del ticket: <b>hora del pedido</b> y <b>hora estimada de entrega</b> (35 minutos después, calculada con <code>getTime()</code>). Formato <code>HH:MM</code> con dos cifras (09:05).</li>
+</ol>
+
+  </div>
+
+<div class="caja">
+ <form name="pedido">
+  <label>Tamaño</label>
+  <select id="tamano">
+    <option value="0">Elige tamaño</option>
+    <option value="8">Pequeña</option>
+    <option value="11">Mediana</option>
+    <option value="15">Familiar</option>
+  </select>
+  &nbsp; Precio base: <input type="text" id="base" size="8" readonly><br><br>
+  <label>Masa</label>
+  <input type="radio" name="masa" value="Fina"> Fina
+  <input type="radio" name="masa" value="Normal"> Normal
+  <input type="radio" name="masa" value="Rellena de queso"> Rellena de queso (+2 €)<br><br>
+  <label>Extras (+1,20 €)</label>
+  <input type="checkbox" name="ingrediente" value="Champiñón"> Champiñón
+  <input type="checkbox" name="ingrediente" value="Bacon"> Bacon
+  <input type="checkbox" name="ingrediente" value="Aceitunas"> Aceitunas
+  <input type="checkbox" name="ingrediente" value="Pimiento"> Pimiento
+  <input type="checkbox" name="ingrediente" value="Extra de queso"> Extra de queso<br><br>
+  <label>Cantidad</label><input type="text" id="cantidad" size="4" value="1"><br><br>
+  <label>Código descuento</label><input type="text" id="codigo" size="10"><br><br>
+  <input type="button" value="Calcular pedido">
+  <input type="reset" value="Borrar">
+ </form>
+ <textarea id="ticket" rows="18"></textarea>
+</div>
+
+  <script>
+        // Escribe aquí tus funciones
+
+  </script>
+</body>
+</html>
